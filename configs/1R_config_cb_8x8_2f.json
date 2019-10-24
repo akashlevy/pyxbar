@@ -1,0 +1,50 @@
+{
+    "title" : "test_1R_cb_8x8_2f",
+    "type" : "1R",
+    "includes" : [],
+    "models" : ["../models/rram_wp.va"],
+    "modname" : "RRAM_v0",
+    "options" : ["post=2"],
+    "params" : [],
+    "probes" : [],
+    "modparams" : "",
+    "rows" : 8,
+    "cols" : 8,
+    "rrow" : 0.18,
+    "crow" : 0.108e-12,
+    "rcol" : 0.18,
+    "ccol" : 0.108e-12,
+    "tstep" : 1e-7,
+    "gap0" : 1.7,
+    "tests" : [
+        {
+            "name" : "cb",
+            "set" : {
+                "rowV" : 1.5,
+                "colV" : 0,
+                "pw" : 1e-6
+            },
+            "reset" : {
+                "rowV" : 0,
+                "colV" : 1.5,
+                "pw" : 1e-6 
+            },
+            "read" : {
+                "rowV" : 0.2,
+                "colV" : 0,
+                "pw" : 1e-6
+            },
+            "scheme" : "V/2",
+            "flips" : 2,
+            "slewtime" : 1e-7,
+            "wait" : 1e-6,
+            "verify" : {
+                "method" : "current",
+                "bounds" : {
+                    "lo" : [0, 0.0015],
+                    "hi" : [0.0015, 0.005]
+                }
+            }
+        }
+    ]
+}
