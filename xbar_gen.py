@@ -146,7 +146,7 @@ class PWL(object):
             for i in range(params['rows']):
                 self.add_row_pulse(test, i, 'read', test['read']['rowV'])
             for j in range(params['cols']):
-                self.add_col_pulse(test, i, 'read', test['read']['colV'])
+                self.add_col_pulse(test, j, 'read', test['read']['colV'])
             self.t += test['read']['pw'] + test['wait']
 
     # Add waveform to write a binary checkerboard (alternating 0's and 1's)
