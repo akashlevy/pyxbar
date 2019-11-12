@@ -1,0 +1,50 @@
+{
+    "title" : "test_2R_cb5pt_16x16_2f",
+    "type" : "2R",
+    "includes" : [],
+    "models" : ["../models/rram_wp.va"],
+    "modname" : "RRAM_v0",
+    "options" : ["post=2"],
+    "params" : [],
+    "probes" : [],
+    "modparams" : "",
+    "rows" : 16,
+    "cols" : 16,
+    "rrow" : 0.18,
+    "crow" : 0.108e-12,
+    "rcol" : 0.18,
+    "ccol" : 0.108e-12,
+    "tstep" : 1e-7,
+    "tests" : [
+        {
+            "name" : "cb_5pt",
+            "set" : {
+                "rowV" : 3,
+                "colV" : 0,
+                "pw" : 1e-6
+            },
+            "reset" : {
+                "rowV" : 0,
+                "colV" : 3,
+                "pw" : 1e-6 
+            },
+            "read" : {
+                "rowV" : 0.2,
+                "colV" : 0,
+                "pw" : 1e-6
+            },
+            "scheme" : "V/2",
+            "flips" : 2,
+            "slewtime" : 1e-7,
+            "wait" : 1e-6,
+            "testsize" : 3,
+            "verify" : {
+                "method" : "midvoltage",
+                "bounds" : {
+                    "lo" : [0, 0.05],
+                    "hi" : [0.15, 0.2]
+                }
+            }
+        }
+    ]
+}

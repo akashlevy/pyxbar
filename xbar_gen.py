@@ -68,7 +68,7 @@ class PWL(object):
 
         # For each test, generate the corresponding waveform
         for test in params['tests']:
-            if test['name'] == 'cb':
+            if test['name'] == 'cb' or test['name'] == 'cb_5pt':
                 self.add_standby_pwl(test)
                 self.add_read_pwl(test)
                 for flip in range(test['flips']):
@@ -127,25 +127,56 @@ class PWL(object):
     # Add waveform to read all cells sequentially
     def add_read_pwl(self, test):
         if params['type'] == '1R':
-            for i in range(params['rows']):
-                for j in range(params['cols']):
-                    self.add_pwl(test, 'read', i, j)
+            # Read 5 subsets for scalability
+            if test['name'] == 'cb_5pt':
+                # 4 corners
+                for i in range(test['testsize']) + range(params['rows'] - test['testsize'], params['rows']):
+                    for j in range(test['testsize']) + range(params['cols'] - test['testsize'], params['cols']):
+                        self.add_pwl(test, 'read', i, j)
+                # Middle
+                for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2):
+                    for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 + test['testsize']/2):
+                        self.add_pwl(test, 'read', i, j)
+            # Full checkerboard
+            else:
+                for i in range(params['rows']):
+                    for j in range(params['cols']):
+                        self.add_pwl(test, 'read', i, j)
         elif params['type'] == '2R':
             for i in range(params['rows']):
                 self.add_row_pulse(test, i, 'read', test['read']['rowV'])
-            for i in range(params['rows']):
+            for j in range(params['cols']):
                 self.add_col_pulse(test, i, 'read', test['read']['colV'])
             self.t += test['read']['pw'] + test['wait']
 
     # Add waveform to write a binary checkerboard (alternating 0's and 1's)
     def add_cb_flip_pwl(self, test, flip):
         # Parameter 'flip' determines whether a SET or RESET occurs first
-        for i in range(params['rows']):
-            for j in range(params['cols']):
-                if (i+j+flip) % 2 == 0:
-                    self.add_pwl(test, 'set', i, j)
-                else:
-                    self.add_pwl(test, 'reset', i, j)
+
+        # Checkerboard with 5 subsets for scalability
+        if test['name'] == 'cb_5pt':
+            # 4 corners
+            for i in range(test['testsize']) + range(params['rows'] - test['testsize'], params['rows']):
+                for j in range(test['testsize']) + range(params['cols'] - test['testsize'], params['cols']):
+                    if (i+j+flip) % 2 == 0:
+                        self.add_pwl(test, 'set', i, j)
+                    else:
+                        self.add_pwl(test, 'reset', i, j)
+            # Middle
+            for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2):
+                for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 + test['testsize']/2):
+                    if (i+j+flip) % 2 == 0:
+                        self.add_pwl(test, 'set', i, j)
+                    else:
+                        self.add_pwl(test, 'reset', i, j)
+        # Full checkerboard
+        else:
+            for i in range(params['rows']):
+                for j in range(params['cols']):
+                    if (i+j+flip) % 2 == 0:
+                        self.add_pwl(test, 'set', i, j)
+                    else:
+                        self.add_pwl(test, 'reset', i, j)
 
     def to_spice(self):
         spiceout = ''
