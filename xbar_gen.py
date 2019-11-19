@@ -47,7 +47,7 @@ elif params['type'] == '2R':
             fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1, 'gap0': params['gap0']}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} mid_{i}_{j} gap1_{i}_{j} gap2_{i}_{j} CELL\n".format(**fmt)
             xbar += ".nodeset row_{i}_{j} 0\n.nodeset row_{i}_{nj} 0\n.nodeset col_{i}_{j} 0\n.nodeset col_{ni}_{j} 0\n".format(**fmt)
-            xbar += ".nodeset mid_{i}_{j} 0"
+            xbar += ".nodeset mid_{i}_{j} 0".format(**fmt)
 
             # Set initial filament gap of cell (i,j)
             xbar += ".nodeset gap1_{i}_{j} {gap0}\n.nodeset gap2_{i}_{j} {gap0}\n".format(**fmt)
