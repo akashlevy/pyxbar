@@ -206,9 +206,9 @@ probes = []
 if 'probegroups' in params:
     if 'vins' in params['probegroups']:
         for i in range(params['rows']):
-            probes.append('V(row_%s_0' % i)
+            probes.append('V(row_%s_0)' % i)
         for j in range(params['cols']):
-            probes.append('Vcol_0_%s' % j)
+            probes.append('V(col_0_%s)' % j)
     if 'currents' in params['probegroups']:
         for i in range(params['rows']):
             probes.append('I(Vrow_%s)' % i)
