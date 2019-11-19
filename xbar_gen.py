@@ -20,7 +20,6 @@ subs['includes'] = '\n'.join([".include %s" % incl for incl in params['includes'
 subs['models'] = '\n'.join([".hdl %s" % incl for incl in params['models']])
 subs['options'] = '\n'.join([".option %s" % incl for incl in params['options']])
 subs['params'] = '\n'.join([".param %s" % incl for incl in params['params']])
-subs['probes'] = '\n'.join([".probe %s" % incl for incl in params['probes']])
 
 # Create subcircuit for cell with parasitic
 if params['type'] == '1R' or params['type'] == '2R':
@@ -201,6 +200,36 @@ subs['pwls'] = pwl.to_spice()
 
 # Transient analysis
 subs['tstop'] = pwl.t
+
+# Probe statements
+probes = []
+if 'probegroups' in params:
+    if 'vins' in params['probegroups']:
+        for i in range(params['rows']):
+            probes.append('Vrow_%s' % i)
+        for j in range(params['cols']):
+            probes.append('Vcol_%s' % j)
+    if 'currents' in params['probegroups']:
+        for i in range(params['rows']):
+            probes.append('I(Vrow_%s)' % i)
+        for j in range(params['cols']):
+            probes.append('I(Vcol_%s)' % j)
+    if 'gaps' in params['probegroups']:
+        for i in range(params['rows']):
+            for j in range(params['cols']):
+                if params['type'] == '1R':
+                    probes.append('gap_%s_%s' % (i,j))
+                elif params['type'] == '2R':
+                    probes.append('gap1_%s_%s' % (i,j))
+                    probes.append('gap2_%s_%s' % (i,j))
+    if 'mids' in params['probegroups']:
+        if params['type'] == '1R':
+            raise Exception('Cannot probe midpoint for 1R structure')
+        elif params['type'] == '2R':
+            for i in range(params['rows']):
+                for j in range(params['cols']):
+                    probes.append('mid_%s_%s' % (i,j))
+subs['probes'] = '\n'.join([".probe %s" % incl for incl in params['probes'] + probes])
 
 # Template substitution
 template = Template(open('templates/script.sp.tmpl').read())
