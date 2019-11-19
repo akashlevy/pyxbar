@@ -5,7 +5,7 @@
 
 
 ** Load models **
-.hdl ../models/rram_wp.va
+.hdl ../models/rram_wp_paper.va
 
 ** Options **
 .option post=2
@@ -34,112 +34,112 @@ Xcell_0_0 row_0_0 row_0_1 col_0_0 col_1_0 mid_0_0 gap1_0_0 gap2_0_0 CELL
 .nodeset col_0_0 0
 .nodeset col_1_0 0
 .nodeset mid_0_0 0.nodeset gap1_0_0 1.7
-.nodeset gap2_0_0 1.7
+.nodeset gap2_0_0 0.2
 Xcell_0_1 row_0_1 row_0_2 col_0_1 col_1_1 mid_0_1 gap1_0_1 gap2_0_1 CELL
 .nodeset row_0_1 0
 .nodeset row_0_2 0
 .nodeset col_0_1 0
 .nodeset col_1_1 0
 .nodeset mid_0_1 0.nodeset gap1_0_1 1.7
-.nodeset gap2_0_1 1.7
+.nodeset gap2_0_1 0.2
 Xcell_0_2 row_0_2 row_0_3 col_0_2 col_1_2 mid_0_2 gap1_0_2 gap2_0_2 CELL
 .nodeset row_0_2 0
 .nodeset row_0_3 0
 .nodeset col_0_2 0
 .nodeset col_1_2 0
 .nodeset mid_0_2 0.nodeset gap1_0_2 1.7
-.nodeset gap2_0_2 1.7
+.nodeset gap2_0_2 0.2
 Xcell_0_3 row_0_3 row_0_4 col_0_3 col_1_3 mid_0_3 gap1_0_3 gap2_0_3 CELL
 .nodeset row_0_3 0
 .nodeset row_0_4 0
 .nodeset col_0_3 0
 .nodeset col_1_3 0
 .nodeset mid_0_3 0.nodeset gap1_0_3 1.7
-.nodeset gap2_0_3 1.7
+.nodeset gap2_0_3 0.2
 Xcell_1_0 row_1_0 row_1_1 col_1_0 col_2_0 mid_1_0 gap1_1_0 gap2_1_0 CELL
 .nodeset row_1_0 0
 .nodeset row_1_1 0
 .nodeset col_1_0 0
 .nodeset col_2_0 0
 .nodeset mid_1_0 0.nodeset gap1_1_0 1.7
-.nodeset gap2_1_0 1.7
+.nodeset gap2_1_0 0.2
 Xcell_1_1 row_1_1 row_1_2 col_1_1 col_2_1 mid_1_1 gap1_1_1 gap2_1_1 CELL
 .nodeset row_1_1 0
 .nodeset row_1_2 0
 .nodeset col_1_1 0
 .nodeset col_2_1 0
 .nodeset mid_1_1 0.nodeset gap1_1_1 1.7
-.nodeset gap2_1_1 1.7
+.nodeset gap2_1_1 0.2
 Xcell_1_2 row_1_2 row_1_3 col_1_2 col_2_2 mid_1_2 gap1_1_2 gap2_1_2 CELL
 .nodeset row_1_2 0
 .nodeset row_1_3 0
 .nodeset col_1_2 0
 .nodeset col_2_2 0
 .nodeset mid_1_2 0.nodeset gap1_1_2 1.7
-.nodeset gap2_1_2 1.7
+.nodeset gap2_1_2 0.2
 Xcell_1_3 row_1_3 row_1_4 col_1_3 col_2_3 mid_1_3 gap1_1_3 gap2_1_3 CELL
 .nodeset row_1_3 0
 .nodeset row_1_4 0
 .nodeset col_1_3 0
 .nodeset col_2_3 0
 .nodeset mid_1_3 0.nodeset gap1_1_3 1.7
-.nodeset gap2_1_3 1.7
+.nodeset gap2_1_3 0.2
 Xcell_2_0 row_2_0 row_2_1 col_2_0 col_3_0 mid_2_0 gap1_2_0 gap2_2_0 CELL
 .nodeset row_2_0 0
 .nodeset row_2_1 0
 .nodeset col_2_0 0
 .nodeset col_3_0 0
 .nodeset mid_2_0 0.nodeset gap1_2_0 1.7
-.nodeset gap2_2_0 1.7
+.nodeset gap2_2_0 0.2
 Xcell_2_1 row_2_1 row_2_2 col_2_1 col_3_1 mid_2_1 gap1_2_1 gap2_2_1 CELL
 .nodeset row_2_1 0
 .nodeset row_2_2 0
 .nodeset col_2_1 0
 .nodeset col_3_1 0
 .nodeset mid_2_1 0.nodeset gap1_2_1 1.7
-.nodeset gap2_2_1 1.7
+.nodeset gap2_2_1 0.2
 Xcell_2_2 row_2_2 row_2_3 col_2_2 col_3_2 mid_2_2 gap1_2_2 gap2_2_2 CELL
 .nodeset row_2_2 0
 .nodeset row_2_3 0
 .nodeset col_2_2 0
 .nodeset col_3_2 0
 .nodeset mid_2_2 0.nodeset gap1_2_2 1.7
-.nodeset gap2_2_2 1.7
+.nodeset gap2_2_2 0.2
 Xcell_2_3 row_2_3 row_2_4 col_2_3 col_3_3 mid_2_3 gap1_2_3 gap2_2_3 CELL
 .nodeset row_2_3 0
 .nodeset row_2_4 0
 .nodeset col_2_3 0
 .nodeset col_3_3 0
 .nodeset mid_2_3 0.nodeset gap1_2_3 1.7
-.nodeset gap2_2_3 1.7
+.nodeset gap2_2_3 0.2
 Xcell_3_0 row_3_0 row_3_1 col_3_0 col_4_0 mid_3_0 gap1_3_0 gap2_3_0 CELL
 .nodeset row_3_0 0
 .nodeset row_3_1 0
 .nodeset col_3_0 0
 .nodeset col_4_0 0
 .nodeset mid_3_0 0.nodeset gap1_3_0 1.7
-.nodeset gap2_3_0 1.7
+.nodeset gap2_3_0 0.2
 Xcell_3_1 row_3_1 row_3_2 col_3_1 col_4_1 mid_3_1 gap1_3_1 gap2_3_1 CELL
 .nodeset row_3_1 0
 .nodeset row_3_2 0
 .nodeset col_3_1 0
 .nodeset col_4_1 0
 .nodeset mid_3_1 0.nodeset gap1_3_1 1.7
-.nodeset gap2_3_1 1.7
+.nodeset gap2_3_1 0.2
 Xcell_3_2 row_3_2 row_3_3 col_3_2 col_4_2 mid_3_2 gap1_3_2 gap2_3_2 CELL
 .nodeset row_3_2 0
 .nodeset row_3_3 0
 .nodeset col_3_2 0
 .nodeset col_4_2 0
 .nodeset mid_3_2 0.nodeset gap1_3_2 1.7
-.nodeset gap2_3_2 1.7
+.nodeset gap2_3_2 0.2
 Xcell_3_3 row_3_3 row_3_4 col_3_3 col_4_3 mid_3_3 gap1_3_3 gap2_3_3 CELL
 .nodeset row_3_3 0
 .nodeset row_3_4 0
 .nodeset col_3_3 0
 .nodeset col_4_3 0
 .nodeset mid_3_3 0.nodeset gap1_3_3 1.7
-.nodeset gap2_3_3 1.7
+.nodeset gap2_3_3 0.2
 
 
 ** PWL voltage waveforms **

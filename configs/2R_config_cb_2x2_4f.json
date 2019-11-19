@@ -2,7 +2,7 @@
     "title" : "test_2R_cb_2x2_4f",
     "type" : "2R",
     "includes" : [],
-    "models" : ["../models/rram_wp.va"],
+    "models" : ["../models/rram_wp_paper.va"],
     "modname" : "RRAM_v0",
     "options" : ["post=2"],
     "params" : [],
@@ -15,7 +15,8 @@
     "rcol" : 0.18,
     "ccol" : 0.108e-12,
     "tstep" : 1e-7,
-    "gap0" : 1.7,
+    "gap0_0" : 1.7,
+    "gap0_1" : 0.2,
     "tests" : [
         {
             "name" : "cb",
