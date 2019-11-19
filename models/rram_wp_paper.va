@@ -14,7 +14,7 @@ module RRAM_v0(t, b, nGap);
     parameter real tox = 12 from (0:inf);
 
     parameter real maxGap = 1.7 from (0:inf);
-    parameter real minGap = 0.0 from (0:inf);
+    parameter real minGap = 0.2 from (0:inf);
 
     parameter real smoothing = 1e-8 from (0:inf);
     parameter real GMIN = 1e-12 from (0:inf);
