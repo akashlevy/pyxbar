@@ -44,10 +44,13 @@ elif params['type'] == '2R':
     for i in range(params['rows']):
         for j in range(params['cols']):
             # Create cell (i,j) and initialize nodes
-            fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1}
+            fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1, 'gap0': params['gap0']}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} mid_{i}_{j} gap1_{i}_{j} gap2_{i}_{j} CELL\n".format(**fmt)
+            xbar += ".nodeset row_{i}_{j} 0\n.nodeset row_{i}_{nj} 0\n.nodeset col_{i}_{j} 0\n.nodeset col_{ni}_{j} 0\n".format(**fmt)
+            #xbar += ".nodeset mid_{i}_{j} 0"
 
-            # TODO: allow initial filament gap for 2R
+            # Set initial filament gap of cell (i,j)
+            xbar += ".nodeset gap1_{i}_{j} {gap0}\n.nodeset gap2_{i}_{j} {gap0}\n".format(**fmt)
 subs['xbar'] = xbar
 
 # PWL class

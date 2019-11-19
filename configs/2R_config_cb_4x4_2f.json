@@ -15,6 +15,7 @@
     "rcol" : 0.18,
     "ccol" : 0.108e-12,
     "tstep" : 1e-7,
+    "gap0" : 1.7,
     "tests" : [
         {
             "name" : "cb",
