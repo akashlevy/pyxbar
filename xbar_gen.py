@@ -27,6 +27,9 @@ if params['type'] == '1R' or params['type'] == '2R':
     template = Template(open("templates/%s_cell.sp.tmpl" % params['type']).read())
     subs['subckts'] = template.substitute(params)
 
+# Initialize probes
+probes = []
+
 # Instantiate crossbar
 xbar = ''
 if params['type'] == '1R':
@@ -164,6 +167,19 @@ class PWL(object):
                         self.add_pwl(test, 'set', i, j)
                     else:
                         self.add_pwl(test, 'reset', i, j)
+                    # Add probes
+                    if 'probegroups' in params:
+                        if 'gaps' in params['probegroups']:
+                            if params['type'] == '1R':
+                                probes.append('V(gap_%s_%s)' % (i,j))
+                            elif params['type'] == '2R':
+                                probes.append('V(gap1_%s_%s)' % (i,j))
+                                probes.append('V(gap2_%s_%s)' % (i,j))
+                        if 'mids' in params['probegroups']:
+                            if params['type'] == '1R':
+                                raise Exception('Cannot probe midpoint for 1R structure')
+                            elif params['type'] == '2R':
+                                probes.append('V(mid_%s_%s)' % (i,j))
             # Middle
             for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2):
                 for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 + test['testsize']/2):
@@ -171,6 +187,19 @@ class PWL(object):
                         self.add_pwl(test, 'set', i, j)
                     else:
                         self.add_pwl(test, 'reset', i, j)
+                    # Add probes
+                    if 'probegroups' in params:
+                        if 'gaps' in params['probegroups']:
+                            if params['type'] == '1R':
+                                probes.append('V(gap_%s_%s)' % (i,j))
+                            elif params['type'] == '2R':
+                                probes.append('V(gap1_%s_%s)' % (i,j))
+                                probes.append('V(gap2_%s_%s)' % (i,j))
+                        if 'mids' in params['probegroups']:
+                            if params['type'] == '1R':
+                                raise Exception('Cannot probe midpoint for 1R structure')
+                            elif params['type'] == '2R':
+                                probes.append('V(mid_%s_%s)' % (i,j))
         # Full checkerboard
         else:
             for i in range(params['rows']):
@@ -202,7 +231,6 @@ subs['pwls'] = pwl.to_spice()
 subs['tstop'] = pwl.t
 
 # Probe statements
-probes = []
 if 'probegroups' in params:
     if 'vins' in params['probegroups']:
         for i in range(params['rows']):
@@ -214,21 +242,6 @@ if 'probegroups' in params:
             probes.append('I(Vrow_%s)' % i)
         for j in range(params['cols']):
             probes.append('I(Vcol_%s)' % j)
-    if 'gaps' in params['probegroups']:
-        for i in range(params['rows']):
-            for j in range(params['cols']):
-                if params['type'] == '1R':
-                    probes.append('V(gap_%s_%s)' % (i,j))
-                elif params['type'] == '2R':
-                    probes.append('V(gap1_%s_%s)' % (i,j))
-                    probes.append('V(gap2_%s_%s)' % (i,j))
-    if 'mids' in params['probegroups']:
-        if params['type'] == '1R':
-            raise Exception('Cannot probe midpoint for 1R structure')
-        elif params['type'] == '2R':
-            for i in range(params['rows']):
-                for j in range(params['cols']):
-                    probes.append('V(mid_%s_%s)' % (i,j))
 subs['probes'] = '\n'.join([".probe %s" % incl for incl in params['probes'] + probes])
 
 # Template substitution
