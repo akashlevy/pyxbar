@@ -5,7 +5,7 @@
 
 
 ** Load models **
-.hdl ../models/rram_wp_paper.va
+.hdl ../models/rram_wp.va
 
 ** Options **
 .option post=2

@@ -2,7 +2,7 @@
     "title" : "test_2R_cb_3x3_2f",
     "type" : "2R",
     "includes" : [],
-    "models" : ["../models/rram_wp_paper.va"],
+    "models" : ["../models/rram_wp.va"],
     "modname" : "RRAM_v0",
     "options" : ["post=2"],
     "params" : [],
