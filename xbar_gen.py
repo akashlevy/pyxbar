@@ -35,21 +35,21 @@ if params['type'] == '1R':
             # Create cell (i,j) and initialize nodes
             fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1, 'gap0': params['gap0']}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} gap_{i}_{j} CELL\n".format(**fmt)
-            xbar += ".nodeset row_{i}_{j} 0\n.nodeset row_{i}_{nj} 0\n.nodeset col_{i}_{j} 0\n.nodeset col_{ni}_{j} 0\n".format(**fmt)
+            xbar += ".ic row_{i}_{j} 0\n.ic row_{i}_{nj} 0\n.ic col_{i}_{j} 0\n.ic col_{ni}_{j} 0\n".format(**fmt)
 
             # Set initial filament gap of cell (i,j)
-            xbar += ".nodeset gap_{i}_{j} {gap0}\n".format(**fmt)
+            xbar += ".ic gap_{i}_{j} {gap0}\n".format(**fmt)
 elif params['type'] == '2R':
     for i in range(params['rows']):
         for j in range(params['cols']):
             # Create cell (i,j) and initialize nodes
             fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1, 'gap0_0': params['gap0_0'], 'gap0_1': params['gap0_1']}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} mid_{i}_{j} gap1_{i}_{j} gap2_{i}_{j} CELL\n".format(**fmt)
-            xbar += ".nodeset row_{i}_{j} 0\n.nodeset row_{i}_{nj} 0\n.nodeset col_{i}_{j} 0\n.nodeset col_{ni}_{j} 0\n".format(**fmt)
-            xbar += ".nodeset mid_{i}_{j} 0\n".format(**fmt)
+            xbar += ".ic row_{i}_{j} 0\n.ic row_{i}_{nj} 0\n.ic col_{i}_{j} 0\n.ic col_{ni}_{j} 0\n".format(**fmt)
+            xbar += ".ic mid_{i}_{j} 0\n".format(**fmt)
 
             # Set initial filament gap of cell (i,j)
-            xbar += ".nodeset gap1_{i}_{j} {gap0_0}\n.nodeset gap2_{i}_{j} {gap0_1}\n".format(**fmt)
+            xbar += ".ic gap1_{i}_{j} {gap0_0}\n.ic gap2_{i}_{j} {gap0_1}\n".format(**fmt)
 subs['xbar'] = xbar
 
 # PWL class
