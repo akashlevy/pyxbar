@@ -1,5 +1,5 @@
 {
-    "title" : "test_2R_cb5pt_128x128_2f",
+    "title" : "test_2R_cb5pt_256x256_2f",
     "type" : "2R",
     "includes" : [],
     "models" : ["../models/rram_wp.va"],
