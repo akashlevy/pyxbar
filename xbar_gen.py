@@ -206,9 +206,9 @@ probes = []
 if 'probegroups' in params:
     if 'vins' in params['probegroups']:
         for i in range(params['rows']):
-            probes.append('Vrow_%s' % i)
+            probes.append('V(row_%s_0' % i)
         for j in range(params['cols']):
-            probes.append('Vcol_%s' % j)
+            probes.append('Vcol_0_%s' % j)
     if 'currents' in params['probegroups']:
         for i in range(params['rows']):
             probes.append('I(Vrow_%s)' % i)
@@ -218,17 +218,17 @@ if 'probegroups' in params:
         for i in range(params['rows']):
             for j in range(params['cols']):
                 if params['type'] == '1R':
-                    probes.append('gap_%s_%s' % (i,j))
+                    probes.append('V(gap_%s_%s)' % (i,j))
                 elif params['type'] == '2R':
-                    probes.append('gap1_%s_%s' % (i,j))
-                    probes.append('gap2_%s_%s' % (i,j))
+                    probes.append('V(gap1_%s_%s)' % (i,j))
+                    probes.append('V(gap2_%s_%s)' % (i,j))
     if 'mids' in params['probegroups']:
         if params['type'] == '1R':
             raise Exception('Cannot probe midpoint for 1R structure')
         elif params['type'] == '2R':
             for i in range(params['rows']):
                 for j in range(params['cols']):
-                    probes.append('mid_%s_%s' % (i,j))
+                    probes.append('V(mid_%s_%s)' % (i,j))
 subs['probes'] = '\n'.join([".probe %s" % incl for incl in params['probes'] + probes])
 
 # Template substitution
