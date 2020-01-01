@@ -2,6 +2,8 @@ import argparse
 import json
 from string import Template
 
+# TODO: refactor checkerboard to be generated pairs of (i,j)
+
 # Parse arguments
 parser = argparse.ArgumentParser(description='Generate a crossbar array in SPICE.')
 parser.add_argument('config', help='configuration JSON file')
