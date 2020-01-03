@@ -2,8 +2,6 @@ import argparse
 import json
 from string import Template
 
-# TODO: refactor checkerboard to be generated pairs of (i,j)
-
 # Parse arguments
 parser = argparse.ArgumentParser(description='Generate a crossbar array in SPICE.')
 parser.add_argument('config', help='configuration JSON file')
@@ -30,7 +28,7 @@ if params['type'] == '1R' or params['type'] == '2R':
     subs['subckts'] = template.substitute(params)
 
 # Initialize probes
-probes = []
+probes = set()
 
 # Instantiate crossbar
 xbar = ''
@@ -40,21 +38,12 @@ if params['type'] == '1R':
             # Create cell (i,j) and initialize nodes
             fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1, 'gap0': params['gap0']}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} gap_{i}_{j} CELL\n".format(**fmt)
-            xbar += ".ic row_{i}_{j} 0\n.ic row_{i}_{nj} 0\n.ic col_{i}_{j} 0\n.ic col_{ni}_{j} 0\n".format(**fmt)
-
-            # Set initial filament gap of cell (i,j)
-            xbar += ".ic gap_{i}_{j} {gap0}\n".format(**fmt)
 elif params['type'] == '2R':
     for i in range(params['rows']):
         for j in range(params['cols']):
             # Create cell (i,j) and initialize nodes
             fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1, 'gap0_0': params['gap0_0'], 'gap0_1': params['gap0_1']}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} mid_{i}_{j} gap1_{i}_{j} gap2_{i}_{j} CELL\n".format(**fmt)
-            xbar += ".ic row_{i}_{j} 0\n.ic row_{i}_{nj} 0\n.ic col_{i}_{j} 0\n.ic col_{ni}_{j} 0\n".format(**fmt)
-            xbar += ".ic mid_{i}_{j} 0\n".format(**fmt)
-
-            # Set initial filament gap of cell (i,j)
-            xbar += ".ic gap1_{i}_{j} {gap0_0}\n.ic gap2_{i}_{j} {gap0_1}\n".format(**fmt)
 subs['xbar'] = xbar
 
 # PWL class
@@ -75,12 +64,28 @@ class PWL(object):
 
         # For each test, generate the corresponding waveform
         for test in params['tests']:
-            if test['name'] == 'cb' or test['name'] == 'cb_5pt':
-                self.add_standby_pwl(test)
-                self.add_read_pwl(test)
-                for flip in range(test['flips']):
-                    self.add_cb_flip_pwl(test, flip)
-                    self.add_read_pwl(test)
+            if test['name'] == 'cb':
+                # Pattern is full array
+                pat = [(i, j) for i in range(params['rows']) for j in range(params['cols'])]
+            elif test['name'] == 'cb_5pt':
+                # Top-left corner
+                pat = [(i, j) for i in range(params['testsize']) for j in range(params['testsize'])]
+                # Top-right corner
+                pat += [(i, j) for i in range(params['testsize']) for j in range(params['cols'] - params['testsize'], params['cols'])]
+                # Middle
+                pat += [(i, j) for i in range(params['rows']/2 - params['testsize']/2, params['rows']/2 + params['testsize']/2) for j in range(params['cols']/2 - params['testsize']/2, params['cols']/2 - params['testsize']/2)]
+                # Bottom-left corner
+                pat += [(i, j) for i in range(params['rows'] - params['testsize'], params['rows']) for j in range(params['testsize'])]
+                # Bottom-right corner
+                pat += [(i, j) for i in range(params['rows'] - params['testsize'], params['rows']) for j in range(params['cols'] - params['testsize'], params['cols'])]
+            else:
+                # Undefined test
+                continue
+            self.add_standby_pwl(test)
+            self.add_read_pwl(test, pat)
+            for flip in range(test['flips']):
+                self.add_cb_flip_pwl(test, pat, flip)
+                self.add_read_pwl(test, pat)
 
     # Add on to row PWL based on mode and pulse height
     def add_row_pulse(self, test, i, mode, height):
@@ -132,23 +137,10 @@ class PWL(object):
         self.add_pwl(test, None, i, j)
 
     # Add waveform to read all cells sequentially
-    def add_read_pwl(self, test):
+    def add_read_pwl(self, test, pat):
         if params['type'] == '1R':
-            # Read 5 subsets for scalability
-            if test['name'] == 'cb_5pt':
-                # 4 corners
-                for i in range(test['testsize']) + range(params['rows'] - test['testsize'], params['rows']):
-                    for j in range(test['testsize']) + range(params['cols'] - test['testsize'], params['cols']):
-                        self.add_pwl(test, 'read', i, j)
-                # Middle
-                for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2):
-                    for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 + test['testsize']/2):
-                        self.add_pwl(test, 'read', i, j)
-            # Full checkerboard
-            else:
-                for i in range(params['rows']):
-                    for j in range(params['cols']):
-                        self.add_pwl(test, 'read', i, j)
+            for i, j in pat:
+                self.add_pwl(test, 'read', i, j)
         elif params['type'] == '2R':
             for i in range(params['rows']):
                 self.add_row_pulse(test, i, 'read', test['read']['rowV'])
@@ -157,59 +149,27 @@ class PWL(object):
             self.t += test['read']['pw'] + test['wait']
 
     # Add waveform to write a binary checkerboard (alternating 0's and 1's)
-    def add_cb_flip_pwl(self, test, flip):
+    def add_cb_flip_pwl(self, test, pat, flip):
         # Parameter 'flip' determines whether a SET or RESET occurs first
 
-        # Checkerboard with 5 subsets for scalability
-        if test['name'] == 'cb_5pt':
-            # 4 corners
-            for i in range(test['testsize']) + range(params['rows'] - test['testsize'], params['rows']):
-                for j in range(test['testsize']) + range(params['cols'] - test['testsize'], params['cols']):
-                    if (i+j+flip) % 2 == 0:
-                        self.add_pwl(test, 'set', i, j)
-                    else:
-                        self.add_pwl(test, 'reset', i, j)
-                    # Add probes
-                    if 'probegroups' in params:
-                        if 'gaps' in params['probegroups']:
-                            if params['type'] == '1R':
-                                probes.append('V(gap_%s_%s)' % (i,j))
-                            elif params['type'] == '2R':
-                                probes.append('V(gap1_%s_%s)' % (i,j))
-                                probes.append('V(gap2_%s_%s)' % (i,j))
-                        if 'mids' in params['probegroups']:
-                            if params['type'] == '1R':
-                                raise Exception('Cannot probe midpoint for 1R structure')
-                            elif params['type'] == '2R':
-                                probes.append('V(mid_%s_%s)' % (i,j))
-            # Middle
-            for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2):
-                for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 + test['testsize']/2):
-                    if (i+j+flip) % 2 == 0:
-                        self.add_pwl(test, 'set', i, j)
-                    else:
-                        self.add_pwl(test, 'reset', i, j)
-                    # Add probes
-                    if 'probegroups' in params:
-                        if 'gaps' in params['probegroups']:
-                            if params['type'] == '1R':
-                                probes.append('V(gap_%s_%s)' % (i,j))
-                            elif params['type'] == '2R':
-                                probes.append('V(gap1_%s_%s)' % (i,j))
-                                probes.append('V(gap2_%s_%s)' % (i,j))
-                        if 'mids' in params['probegroups']:
-                            if params['type'] == '1R':
-                                raise Exception('Cannot probe midpoint for 1R structure')
-                            elif params['type'] == '2R':
-                                probes.append('V(mid_%s_%s)' % (i,j))
-        # Full checkerboard
-        else:
-            for i in range(params['rows']):
-                for j in range(params['cols']):
-                    if (i+j+flip) % 2 == 0:
-                        self.add_pwl(test, 'set', i, j)
-                    else:
-                        self.add_pwl(test, 'reset', i, j)
+        for i, j in pat:
+            if (i+j+flip) % 2 == 0:
+                self.add_pwl(test, 'set', i, j)
+            else:
+                self.add_pwl(test, 'reset', i, j)
+            # Add probes
+            if 'probegroups' in params:
+                if 'gaps' in params['probegroups']:
+                    if params['type'] == '1R':
+                        probes.add('V(gap_%s_%s)' % (i,j))
+                    elif params['type'] == '2R':
+                        probes.add('V(gap1_%s_%s)' % (i,j))
+                        probes.add('V(gap2_%s_%s)' % (i,j))
+                if 'mids' in params['probegroups']:
+                    if params['type'] == '1R':
+                        raise Exception('Cannot probe midpoint for 1R structure')
+                    elif params['type'] == '2R':
+                        probes.add('V(mid_%s_%s)' % (i,j))
 
     def to_spice(self):
         spiceout = ''
@@ -236,15 +196,15 @@ subs['tstop'] = pwl.t
 if 'probegroups' in params:
     if 'vins' in params['probegroups']:
         for i in range(params['rows']):
-            probes.append('V(row_%s_0)' % i)
+            probes.add('V(row_%s_0)' % i)
         for j in range(params['cols']):
-            probes.append('V(col_0_%s)' % j)
+            probes.add('V(col_0_%s)' % j)
     if 'currents' in params['probegroups']:
         for i in range(params['rows']):
-            probes.append('I(Vrow_%s)' % i)
+            probes.add('I(Vrow_%s)' % i)
         for j in range(params['cols']):
-            probes.append('I(Vcol_%s)' % j)
-subs['probes'] = '\n'.join([".probe %s" % incl for incl in params['probes'] + probes])
+            probes.add('I(Vcol_%s)' % j)
+subs['probes'] = '\n'.join([".probe %s" % incl for incl in params['probes'] + list(probes)])
 
 # Template substitution
 template = Template(open('templates/script.sp.tmpl').read())
