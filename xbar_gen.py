@@ -1,5 +1,6 @@
 import argparse
 import json
+from collections import OrderedDict
 from string import Template
 
 # Parse arguments
@@ -28,7 +29,7 @@ if params['type'] == '1R' or params['type'] == '2R':
     subs['subckts'] = template.substitute(params)
 
 # Initialize probes
-probes = set()
+probes = []
 
 # Instantiate crossbar
 xbar = ''
@@ -69,15 +70,15 @@ class PWL(object):
                 pat = [(i, j) for i in range(params['rows']) for j in range(params['cols'])]
             elif test['name'] == 'cb_5pt':
                 # Top-left corner
-                pat = [(i, j) for i in range(params['testsize']) for j in range(params['testsize'])]
+                pat = [(i, j) for i in range(test['testsize']) for j in range(test['testsize'])]
                 # Top-right corner
-                pat += [(i, j) for i in range(params['testsize']) for j in range(params['cols'] - params['testsize'], params['cols'])]
+                pat += [(i, j) for i in range(test['testsize']) for j in range(params['cols'] - test['testsize'], params['cols'])]
                 # Middle
-                pat += [(i, j) for i in range(params['rows']/2 - params['testsize']/2, params['rows']/2 + params['testsize']/2) for j in range(params['cols']/2 - params['testsize']/2, params['cols']/2 - params['testsize']/2)]
+                pat += [(i, j) for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2) for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 - test['testsize']/2)]
                 # Bottom-left corner
-                pat += [(i, j) for i in range(params['rows'] - params['testsize'], params['rows']) for j in range(params['testsize'])]
+                pat += [(i, j) for i in range(params['rows'] - test['testsize'], params['rows']) for j in range(test['testsize'])]
                 # Bottom-right corner
-                pat += [(i, j) for i in range(params['rows'] - params['testsize'], params['rows']) for j in range(params['cols'] - params['testsize'], params['cols'])]
+                pat += [(i, j) for i in range(params['rows'] - test['testsize'], params['rows']) for j in range(params['cols'] - test['testsize'], params['cols'])]
             else:
                 # Undefined test
                 continue
@@ -161,15 +162,15 @@ class PWL(object):
             if 'probegroups' in params:
                 if 'gaps' in params['probegroups']:
                     if params['type'] == '1R':
-                        probes.add('V(gap_%s_%s)' % (i,j))
+                        probes.append('V(gap_%s_%s)' % (i,j))
                     elif params['type'] == '2R':
-                        probes.add('V(gap1_%s_%s)' % (i,j))
-                        probes.add('V(gap2_%s_%s)' % (i,j))
+                        probes.append('V(gap1_%s_%s)' % (i,j))
+                        probes.append('V(gap2_%s_%s)' % (i,j))
                 if 'mids' in params['probegroups']:
                     if params['type'] == '1R':
                         raise Exception('Cannot probe midpoint for 1R structure')
                     elif params['type'] == '2R':
-                        probes.add('V(mid_%s_%s)' % (i,j))
+                        probes.append('V(mid_%s_%s)' % (i,j))
 
     def to_spice(self):
         spiceout = ''
@@ -196,15 +197,15 @@ subs['tstop'] = pwl.t
 if 'probegroups' in params:
     if 'vins' in params['probegroups']:
         for i in range(params['rows']):
-            probes.add('V(row_%s_0)' % i)
+            probes.append('V(row_%s_0)' % i)
         for j in range(params['cols']):
-            probes.add('V(col_0_%s)' % j)
+            probes.append('V(col_0_%s)' % j)
     if 'currents' in params['probegroups']:
         for i in range(params['rows']):
-            probes.add('I(Vrow_%s)' % i)
+            probes.append('I(Vrow_%s)' % i)
         for j in range(params['cols']):
-            probes.add('I(Vcol_%s)' % j)
-subs['probes'] = '\n'.join([".probe %s" % incl for incl in params['probes'] + list(probes)])
+            probes.append('I(Vcol_%s)' % j)
+subs['probes'] = '\n'.join([".probe %s" % incl for incl in params['probes'] + list(OrderedDict.fromkeys(probes))])
 
 # Template substitution
 template = Template(open('templates/script.sp.tmpl').read())
