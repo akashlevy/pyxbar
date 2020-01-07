@@ -74,13 +74,13 @@ class PWL(object):
                 # Top-right corner
                 pat += [(i, j) for i in range(test['testsize']) for j in range(params['cols'] - test['testsize'], params['cols'])]
                 # Middle
-                pat += [(i, j) for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2) for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 - test['testsize']/2)]
+                pat += [(i, j) for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2) for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 + test['testsize']/2)]
                 # Bottom-left corner
                 pat += [(i, j) for i in range(params['rows'] - test['testsize'], params['rows']) for j in range(test['testsize'])]
                 # Bottom-right corner
                 pat += [(i, j) for i in range(params['rows'] - test['testsize'], params['rows']) for j in range(params['cols'] - test['testsize'], params['cols'])]
             else:
-                # Undefined test
+                # Undefined test (skip)
                 continue
             self.add_standby_pwl(test)
             self.add_read_pwl(test, pat)
@@ -137,7 +137,7 @@ class PWL(object):
     def add_standby_pwl(self, test):
         self.add_pwl(test, None, i, j)
 
-    # Add waveform to read all cells sequentially
+    # Add waveform to read all cells
     def add_read_pwl(self, test, pat):
         if params['type'] == '1R':
             for i, j in pat:
@@ -152,7 +152,7 @@ class PWL(object):
     # Add waveform to write a binary checkerboard (alternating 0's and 1's)
     def add_cb_flip_pwl(self, test, pat, flip):
         # Parameter 'flip' determines whether a SET or RESET occurs first
-
+        # Iterate through pattern points (i,j)
         for i, j in pat:
             if (i+j+flip) % 2 == 0:
                 self.add_pwl(test, 'set', i, j)
