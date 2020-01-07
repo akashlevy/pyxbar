@@ -16,10 +16,10 @@ args = parser.parse_args()
 params = json.load(open(args.config))
 
 # Open transient result file
-infile = open("sp/%s.tr0" % params['title'])
+infile = open("tr0/%s.tr0" % params['title'])
 
 # Get signal names
-nsigs = int(infile.read(4))
+nsigs = int(infile.read(4)) + int(infile.read(4))
 line = infile.readline()
 header = ''
 while line.strip()[-4:] != '$&%#':
@@ -92,11 +92,14 @@ for test in params['tests']:
         
         # Display checkerboard if specified
         if args.visualize:
-            import matplotlib.pyplot as plt
-            print(meas)
+            import matplotlib, matplotlib.pyplot as plt
+            if args.verbose:
+                print(meas)
             vmin = min(verify['bounds']['lo'][1], verify['bounds']['hi'][1])*0.99999
             vmax = max(verify['bounds']['lo'][0], verify['bounds']['hi'][0])*1.00001
-            plt.imshow(meas, 'gray', origin='upper', interpolation='nearest', vmin=vmin, vmax=vmax)
+            cmap = matplotlib.cm.get_cmap('gray')
+            cmap.set_bad(color='red')
+            plt.imshow(meas, cmap, origin='upper', interpolation='nearest', vmin=vmin, vmax=vmax)
             plt.show()
 
         # Check if tests passed

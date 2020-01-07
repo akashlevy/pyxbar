@@ -40,10 +40,10 @@
             "wait" : 1e-6,
             "testsize" : 3,
             "verify" : {
-                "method" : "current",
+                "method" : "gap",
                 "bounds" : {
-                    "lo" : [0, 0.0025],
-                    "hi" : [0.0025, 0.005]
+                    "lo" : [1.5, 1.7],
+                    "hi" : [0, 0.2]
                 }
             }
         }
