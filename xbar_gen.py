@@ -37,13 +37,13 @@ if params['type'] == '1R':
     for i in range(params['rows']):
         for j in range(params['cols']):
             # Create cell (i,j) and initialize nodes
-            fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1, 'gap0': params['gap0']}
+            fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} gap_{i}_{j} CELL\n".format(**fmt)
 elif params['type'] == '2R':
     for i in range(params['rows']):
         for j in range(params['cols']):
             # Create cell (i,j) and initialize nodes
-            fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1, 'gap0_0': params['gap0_0'], 'gap0_1': params['gap0_1']}
+            fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} mid_{i}_{j} gap1_{i}_{j} gap2_{i}_{j} CELL\n".format(**fmt)
 subs['xbar'] = xbar
 
