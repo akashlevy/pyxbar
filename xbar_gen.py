@@ -1,7 +1,10 @@
+'''Generates the crossbar array HSPICE netlist and PWLs'''
+
 import argparse
 import json
 from collections import OrderedDict
 from string import Template
+from helper import getpat
 
 # Parse arguments
 parser = argparse.ArgumentParser(description='Generate a crossbar array in SPICE.')
@@ -65,23 +68,7 @@ class PWL(object):
 
         # For each test, generate the corresponding waveform
         for test in params['tests']:
-            if test['name'] == 'cb':
-                # Pattern is full array
-                pat = [(i, j) for i in range(params['rows']) for j in range(params['cols'])]
-            elif test['name'] == 'cb_5pt':
-                # Top-left corner
-                pat = [(i, j) for i in range(test['testsize']) for j in range(test['testsize'])]
-                # Top-right corner
-                pat += [(i, j) for i in range(test['testsize']) for j in range(params['cols'] - test['testsize'], params['cols'])]
-                # Middle
-                pat += [(i, j) for i in range(params['rows']/2 - test['testsize']/2, params['rows']/2 + test['testsize']/2) for j in range(params['cols']/2 - test['testsize']/2, params['cols']/2 + test['testsize']/2)]
-                # Bottom-left corner
-                pat += [(i, j) for i in range(params['rows'] - test['testsize'], params['rows']) for j in range(test['testsize'])]
-                # Bottom-right corner
-                pat += [(i, j) for i in range(params['rows'] - test['testsize'], params['rows']) for j in range(params['cols'] - test['testsize'], params['cols'])]
-            else:
-                # Undefined test (skip)
-                continue
+            pat = getpat(test, params)
             self.add_standby_pwl(test)
             self.add_read_pwl(test, pat)
             for flip in range(test['flips']):
