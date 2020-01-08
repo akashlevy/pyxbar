@@ -122,6 +122,7 @@
 
 ** Sub-circuits **
 .subckt CELL r1 r2 c1 c2 gap
+Ccell r1 c1 1f
 Rr r1 r2 0.18
 Cr r2 gnd 1.08e-13
 Rc c1 c2 0.18
