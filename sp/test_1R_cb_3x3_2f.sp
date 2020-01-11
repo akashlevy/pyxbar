@@ -29,14 +29,23 @@ X1 r1 c1 gap RRAM_v0
 
 ** Crossbar instantiation **
 Xcell_0_0 row_0_0 row_0_1 col_0_0 col_1_0 gap_0_0 CELL
+.nodeset gap_0_0 0.85
 Xcell_0_1 row_0_1 row_0_2 col_0_1 col_1_1 gap_0_1 CELL
+.nodeset gap_0_1 0.85
 Xcell_0_2 row_0_2 row_0_3 col_0_2 col_1_2 gap_0_2 CELL
+.nodeset gap_0_2 0.85
 Xcell_1_0 row_1_0 row_1_1 col_1_0 col_2_0 gap_1_0 CELL
+.nodeset gap_1_0 0.85
 Xcell_1_1 row_1_1 row_1_2 col_1_1 col_2_1 gap_1_1 CELL
+.nodeset gap_1_1 0.85
 Xcell_1_2 row_1_2 row_1_3 col_1_2 col_2_2 gap_1_2 CELL
+.nodeset gap_1_2 0.85
 Xcell_2_0 row_2_0 row_2_1 col_2_0 col_3_0 gap_2_0 CELL
+.nodeset gap_2_0 0.85
 Xcell_2_1 row_2_1 row_2_2 col_2_1 col_3_1 gap_2_1 CELL
+.nodeset gap_2_1 0.85
 Xcell_2_2 row_2_2 row_2_3 col_2_2 col_3_2 gap_2_2 CELL
+.nodeset gap_2_2 0.85
 
 
 ** PWL voltage waveforms **

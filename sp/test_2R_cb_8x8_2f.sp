@@ -29,69 +29,197 @@ X2 c1 mid gap2 RRAM_v0
 
 ** Crossbar instantiation **
 Xcell_0_0 row_0_0 row_0_1 col_0_0 col_1_0 mid_0_0 gap1_0_0 gap2_0_0 CELL
+.nodeset gap1_0_0 0.85
+.nodeset gap2_0_0 0.85
 Xcell_0_1 row_0_1 row_0_2 col_0_1 col_1_1 mid_0_1 gap1_0_1 gap2_0_1 CELL
+.nodeset gap1_0_1 0.85
+.nodeset gap2_0_1 0.85
 Xcell_0_2 row_0_2 row_0_3 col_0_2 col_1_2 mid_0_2 gap1_0_2 gap2_0_2 CELL
+.nodeset gap1_0_2 0.85
+.nodeset gap2_0_2 0.85
 Xcell_0_3 row_0_3 row_0_4 col_0_3 col_1_3 mid_0_3 gap1_0_3 gap2_0_3 CELL
+.nodeset gap1_0_3 0.85
+.nodeset gap2_0_3 0.85
 Xcell_0_4 row_0_4 row_0_5 col_0_4 col_1_4 mid_0_4 gap1_0_4 gap2_0_4 CELL
+.nodeset gap1_0_4 0.85
+.nodeset gap2_0_4 0.85
 Xcell_0_5 row_0_5 row_0_6 col_0_5 col_1_5 mid_0_5 gap1_0_5 gap2_0_5 CELL
+.nodeset gap1_0_5 0.85
+.nodeset gap2_0_5 0.85
 Xcell_0_6 row_0_6 row_0_7 col_0_6 col_1_6 mid_0_6 gap1_0_6 gap2_0_6 CELL
+.nodeset gap1_0_6 0.85
+.nodeset gap2_0_6 0.85
 Xcell_0_7 row_0_7 row_0_8 col_0_7 col_1_7 mid_0_7 gap1_0_7 gap2_0_7 CELL
+.nodeset gap1_0_7 0.85
+.nodeset gap2_0_7 0.85
 Xcell_1_0 row_1_0 row_1_1 col_1_0 col_2_0 mid_1_0 gap1_1_0 gap2_1_0 CELL
+.nodeset gap1_1_0 0.85
+.nodeset gap2_1_0 0.85
 Xcell_1_1 row_1_1 row_1_2 col_1_1 col_2_1 mid_1_1 gap1_1_1 gap2_1_1 CELL
+.nodeset gap1_1_1 0.85
+.nodeset gap2_1_1 0.85
 Xcell_1_2 row_1_2 row_1_3 col_1_2 col_2_2 mid_1_2 gap1_1_2 gap2_1_2 CELL
+.nodeset gap1_1_2 0.85
+.nodeset gap2_1_2 0.85
 Xcell_1_3 row_1_3 row_1_4 col_1_3 col_2_3 mid_1_3 gap1_1_3 gap2_1_3 CELL
+.nodeset gap1_1_3 0.85
+.nodeset gap2_1_3 0.85
 Xcell_1_4 row_1_4 row_1_5 col_1_4 col_2_4 mid_1_4 gap1_1_4 gap2_1_4 CELL
+.nodeset gap1_1_4 0.85
+.nodeset gap2_1_4 0.85
 Xcell_1_5 row_1_5 row_1_6 col_1_5 col_2_5 mid_1_5 gap1_1_5 gap2_1_5 CELL
+.nodeset gap1_1_5 0.85
+.nodeset gap2_1_5 0.85
 Xcell_1_6 row_1_6 row_1_7 col_1_6 col_2_6 mid_1_6 gap1_1_6 gap2_1_6 CELL
+.nodeset gap1_1_6 0.85
+.nodeset gap2_1_6 0.85
 Xcell_1_7 row_1_7 row_1_8 col_1_7 col_2_7 mid_1_7 gap1_1_7 gap2_1_7 CELL
+.nodeset gap1_1_7 0.85
+.nodeset gap2_1_7 0.85
 Xcell_2_0 row_2_0 row_2_1 col_2_0 col_3_0 mid_2_0 gap1_2_0 gap2_2_0 CELL
+.nodeset gap1_2_0 0.85
+.nodeset gap2_2_0 0.85
 Xcell_2_1 row_2_1 row_2_2 col_2_1 col_3_1 mid_2_1 gap1_2_1 gap2_2_1 CELL
+.nodeset gap1_2_1 0.85
+.nodeset gap2_2_1 0.85
 Xcell_2_2 row_2_2 row_2_3 col_2_2 col_3_2 mid_2_2 gap1_2_2 gap2_2_2 CELL
+.nodeset gap1_2_2 0.85
+.nodeset gap2_2_2 0.85
 Xcell_2_3 row_2_3 row_2_4 col_2_3 col_3_3 mid_2_3 gap1_2_3 gap2_2_3 CELL
+.nodeset gap1_2_3 0.85
+.nodeset gap2_2_3 0.85
 Xcell_2_4 row_2_4 row_2_5 col_2_4 col_3_4 mid_2_4 gap1_2_4 gap2_2_4 CELL
+.nodeset gap1_2_4 0.85
+.nodeset gap2_2_4 0.85
 Xcell_2_5 row_2_5 row_2_6 col_2_5 col_3_5 mid_2_5 gap1_2_5 gap2_2_5 CELL
+.nodeset gap1_2_5 0.85
+.nodeset gap2_2_5 0.85
 Xcell_2_6 row_2_6 row_2_7 col_2_6 col_3_6 mid_2_6 gap1_2_6 gap2_2_6 CELL
+.nodeset gap1_2_6 0.85
+.nodeset gap2_2_6 0.85
 Xcell_2_7 row_2_7 row_2_8 col_2_7 col_3_7 mid_2_7 gap1_2_7 gap2_2_7 CELL
+.nodeset gap1_2_7 0.85
+.nodeset gap2_2_7 0.85
 Xcell_3_0 row_3_0 row_3_1 col_3_0 col_4_0 mid_3_0 gap1_3_0 gap2_3_0 CELL
+.nodeset gap1_3_0 0.85
+.nodeset gap2_3_0 0.85
 Xcell_3_1 row_3_1 row_3_2 col_3_1 col_4_1 mid_3_1 gap1_3_1 gap2_3_1 CELL
+.nodeset gap1_3_1 0.85
+.nodeset gap2_3_1 0.85
 Xcell_3_2 row_3_2 row_3_3 col_3_2 col_4_2 mid_3_2 gap1_3_2 gap2_3_2 CELL
+.nodeset gap1_3_2 0.85
+.nodeset gap2_3_2 0.85
 Xcell_3_3 row_3_3 row_3_4 col_3_3 col_4_3 mid_3_3 gap1_3_3 gap2_3_3 CELL
+.nodeset gap1_3_3 0.85
+.nodeset gap2_3_3 0.85
 Xcell_3_4 row_3_4 row_3_5 col_3_4 col_4_4 mid_3_4 gap1_3_4 gap2_3_4 CELL
+.nodeset gap1_3_4 0.85
+.nodeset gap2_3_4 0.85
 Xcell_3_5 row_3_5 row_3_6 col_3_5 col_4_5 mid_3_5 gap1_3_5 gap2_3_5 CELL
+.nodeset gap1_3_5 0.85
+.nodeset gap2_3_5 0.85
 Xcell_3_6 row_3_6 row_3_7 col_3_6 col_4_6 mid_3_6 gap1_3_6 gap2_3_6 CELL
+.nodeset gap1_3_6 0.85
+.nodeset gap2_3_6 0.85
 Xcell_3_7 row_3_7 row_3_8 col_3_7 col_4_7 mid_3_7 gap1_3_7 gap2_3_7 CELL
+.nodeset gap1_3_7 0.85
+.nodeset gap2_3_7 0.85
 Xcell_4_0 row_4_0 row_4_1 col_4_0 col_5_0 mid_4_0 gap1_4_0 gap2_4_0 CELL
+.nodeset gap1_4_0 0.85
+.nodeset gap2_4_0 0.85
 Xcell_4_1 row_4_1 row_4_2 col_4_1 col_5_1 mid_4_1 gap1_4_1 gap2_4_1 CELL
+.nodeset gap1_4_1 0.85
+.nodeset gap2_4_1 0.85
 Xcell_4_2 row_4_2 row_4_3 col_4_2 col_5_2 mid_4_2 gap1_4_2 gap2_4_2 CELL
+.nodeset gap1_4_2 0.85
+.nodeset gap2_4_2 0.85
 Xcell_4_3 row_4_3 row_4_4 col_4_3 col_5_3 mid_4_3 gap1_4_3 gap2_4_3 CELL
+.nodeset gap1_4_3 0.85
+.nodeset gap2_4_3 0.85
 Xcell_4_4 row_4_4 row_4_5 col_4_4 col_5_4 mid_4_4 gap1_4_4 gap2_4_4 CELL
+.nodeset gap1_4_4 0.85
+.nodeset gap2_4_4 0.85
 Xcell_4_5 row_4_5 row_4_6 col_4_5 col_5_5 mid_4_5 gap1_4_5 gap2_4_5 CELL
+.nodeset gap1_4_5 0.85
+.nodeset gap2_4_5 0.85
 Xcell_4_6 row_4_6 row_4_7 col_4_6 col_5_6 mid_4_6 gap1_4_6 gap2_4_6 CELL
+.nodeset gap1_4_6 0.85
+.nodeset gap2_4_6 0.85
 Xcell_4_7 row_4_7 row_4_8 col_4_7 col_5_7 mid_4_7 gap1_4_7 gap2_4_7 CELL
+.nodeset gap1_4_7 0.85
+.nodeset gap2_4_7 0.85
 Xcell_5_0 row_5_0 row_5_1 col_5_0 col_6_0 mid_5_0 gap1_5_0 gap2_5_0 CELL
+.nodeset gap1_5_0 0.85
+.nodeset gap2_5_0 0.85
 Xcell_5_1 row_5_1 row_5_2 col_5_1 col_6_1 mid_5_1 gap1_5_1 gap2_5_1 CELL
+.nodeset gap1_5_1 0.85
+.nodeset gap2_5_1 0.85
 Xcell_5_2 row_5_2 row_5_3 col_5_2 col_6_2 mid_5_2 gap1_5_2 gap2_5_2 CELL
+.nodeset gap1_5_2 0.85
+.nodeset gap2_5_2 0.85
 Xcell_5_3 row_5_3 row_5_4 col_5_3 col_6_3 mid_5_3 gap1_5_3 gap2_5_3 CELL
+.nodeset gap1_5_3 0.85
+.nodeset gap2_5_3 0.85
 Xcell_5_4 row_5_4 row_5_5 col_5_4 col_6_4 mid_5_4 gap1_5_4 gap2_5_4 CELL
+.nodeset gap1_5_4 0.85
+.nodeset gap2_5_4 0.85
 Xcell_5_5 row_5_5 row_5_6 col_5_5 col_6_5 mid_5_5 gap1_5_5 gap2_5_5 CELL
+.nodeset gap1_5_5 0.85
+.nodeset gap2_5_5 0.85
 Xcell_5_6 row_5_6 row_5_7 col_5_6 col_6_6 mid_5_6 gap1_5_6 gap2_5_6 CELL
+.nodeset gap1_5_6 0.85
+.nodeset gap2_5_6 0.85
 Xcell_5_7 row_5_7 row_5_8 col_5_7 col_6_7 mid_5_7 gap1_5_7 gap2_5_7 CELL
+.nodeset gap1_5_7 0.85
+.nodeset gap2_5_7 0.85
 Xcell_6_0 row_6_0 row_6_1 col_6_0 col_7_0 mid_6_0 gap1_6_0 gap2_6_0 CELL
+.nodeset gap1_6_0 0.85
+.nodeset gap2_6_0 0.85
 Xcell_6_1 row_6_1 row_6_2 col_6_1 col_7_1 mid_6_1 gap1_6_1 gap2_6_1 CELL
+.nodeset gap1_6_1 0.85
+.nodeset gap2_6_1 0.85
 Xcell_6_2 row_6_2 row_6_3 col_6_2 col_7_2 mid_6_2 gap1_6_2 gap2_6_2 CELL
+.nodeset gap1_6_2 0.85
+.nodeset gap2_6_2 0.85
 Xcell_6_3 row_6_3 row_6_4 col_6_3 col_7_3 mid_6_3 gap1_6_3 gap2_6_3 CELL
+.nodeset gap1_6_3 0.85
+.nodeset gap2_6_3 0.85
 Xcell_6_4 row_6_4 row_6_5 col_6_4 col_7_4 mid_6_4 gap1_6_4 gap2_6_4 CELL
+.nodeset gap1_6_4 0.85
+.nodeset gap2_6_4 0.85
 Xcell_6_5 row_6_5 row_6_6 col_6_5 col_7_5 mid_6_5 gap1_6_5 gap2_6_5 CELL
+.nodeset gap1_6_5 0.85
+.nodeset gap2_6_5 0.85
 Xcell_6_6 row_6_6 row_6_7 col_6_6 col_7_6 mid_6_6 gap1_6_6 gap2_6_6 CELL
+.nodeset gap1_6_6 0.85
+.nodeset gap2_6_6 0.85
 Xcell_6_7 row_6_7 row_6_8 col_6_7 col_7_7 mid_6_7 gap1_6_7 gap2_6_7 CELL
+.nodeset gap1_6_7 0.85
+.nodeset gap2_6_7 0.85
 Xcell_7_0 row_7_0 row_7_1 col_7_0 col_8_0 mid_7_0 gap1_7_0 gap2_7_0 CELL
+.nodeset gap1_7_0 0.85
+.nodeset gap2_7_0 0.85
 Xcell_7_1 row_7_1 row_7_2 col_7_1 col_8_1 mid_7_1 gap1_7_1 gap2_7_1 CELL
+.nodeset gap1_7_1 0.85
+.nodeset gap2_7_1 0.85
 Xcell_7_2 row_7_2 row_7_3 col_7_2 col_8_2 mid_7_2 gap1_7_2 gap2_7_2 CELL
+.nodeset gap1_7_2 0.85
+.nodeset gap2_7_2 0.85
 Xcell_7_3 row_7_3 row_7_4 col_7_3 col_8_3 mid_7_3 gap1_7_3 gap2_7_3 CELL
+.nodeset gap1_7_3 0.85
+.nodeset gap2_7_3 0.85
 Xcell_7_4 row_7_4 row_7_5 col_7_4 col_8_4 mid_7_4 gap1_7_4 gap2_7_4 CELL
+.nodeset gap1_7_4 0.85
+.nodeset gap2_7_4 0.85
 Xcell_7_5 row_7_5 row_7_6 col_7_5 col_8_5 mid_7_5 gap1_7_5 gap2_7_5 CELL
+.nodeset gap1_7_5 0.85
+.nodeset gap2_7_5 0.85
 Xcell_7_6 row_7_6 row_7_7 col_7_6 col_8_6 mid_7_6 gap1_7_6 gap2_7_6 CELL
+.nodeset gap1_7_6 0.85
+.nodeset gap2_7_6 0.85
 Xcell_7_7 row_7_7 row_7_8 col_7_7 col_8_7 mid_7_7 gap1_7_7 gap2_7_7 CELL
+.nodeset gap1_7_7 0.85
+.nodeset gap2_7_7 0.85
 
 
 ** PWL voltage waveforms **
