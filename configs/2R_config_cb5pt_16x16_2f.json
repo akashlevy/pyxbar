@@ -2,7 +2,7 @@
     "title" : "test_2R_cb5pt_16x16_2f",
     "type" : "2R",
     "includes" : [],
-    "models" : ["../models/rram_wp.va"],
+    "models" : ["../models/rram_wp_akash.va"],
     "modname" : "RRAM_v0",
     "options" : ["post=2", "probe"],
     "params" : [],

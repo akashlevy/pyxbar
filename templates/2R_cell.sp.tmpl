@@ -1,8 +1,8 @@
 .subckt CELL r1 r2 c1 c2 mid gap1 gap2
 Rr r1 r2 $rrow
-Cr r2 gnd $crow
+Cr r1 gnd $crow
 Rc c1 c2 $rcol
-Cc c2 gnd $ccol
+Cc c1 gnd $ccol
 X1 r1 mid gap1 $modname $modparams
 X2 c1 mid gap2 $modname $modparams
 .ends CELL

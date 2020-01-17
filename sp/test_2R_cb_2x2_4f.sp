@@ -5,7 +5,7 @@
 
 
 ** Load models **
-.hdl ../models/rram_wp.va
+.hdl ../models/rram_wp_akash.va
 
 ** Options **
 .option post=2
@@ -19,9 +19,9 @@
 ** Sub-circuits **
 .subckt CELL r1 r2 c1 c2 mid gap1 gap2
 Rr r1 r2 0.18
-Cr r2 gnd 1.08e-13
+Cr r1 gnd 1.08e-13
 Rc c1 c2 0.18
-Cc c2 gnd 1.08e-13
+Cc c1 gnd 1.08e-13
 X1 r1 mid gap1 RRAM_v0 
 X2 c1 mid gap2 RRAM_v0 
 .ends CELL
@@ -29,17 +29,13 @@ X2 c1 mid gap2 RRAM_v0
 
 ** Crossbar instantiation **
 Xcell_0_0 row_0_0 row_0_1 col_0_0 col_1_0 mid_0_0 gap1_0_0 gap2_0_0 CELL
-.nodeset v(gap1_0_0)=0.85
-.nodeset v(gap2_0_0)=0.85
+.ic v(gap1_0_0)=0.85 v(gap2_0_0)=0.85
 Xcell_0_1 row_0_1 row_0_2 col_0_1 col_1_1 mid_0_1 gap1_0_1 gap2_0_1 CELL
-.nodeset v(gap1_0_1)=0.85
-.nodeset v(gap2_0_1)=0.85
+.ic v(gap1_0_1)=0.85 v(gap2_0_1)=0.85
 Xcell_1_0 row_1_0 row_1_1 col_1_0 col_2_0 mid_1_0 gap1_1_0 gap2_1_0 CELL
-.nodeset v(gap1_1_0)=0.85
-.nodeset v(gap2_1_0)=0.85
+.ic v(gap1_1_0)=0.85 v(gap2_1_0)=0.85
 Xcell_1_1 row_1_1 row_1_2 col_1_1 col_2_1 mid_1_1 gap1_1_1 gap2_1_1 CELL
-.nodeset v(gap1_1_1)=0.85
-.nodeset v(gap2_1_1)=0.85
+.ic v(gap1_1_1)=0.85 v(gap2_1_1)=0.85
 
 
 ** PWL voltage waveforms **

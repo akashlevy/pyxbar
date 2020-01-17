@@ -5,7 +5,7 @@
 
 
 ** Load models **
-.hdl ../models/rram_wp.va
+.hdl ../models/rram_wp_akash.va
 
 ** Options **
 .option post=2
@@ -18,24 +18,23 @@
 
 ** Sub-circuits **
 .subckt CELL r1 r2 c1 c2 gap
-Ccell r1 c1 1f
 Rr r1 r2 0.18
-Cr r2 gnd 1.08e-13
+Cr r1 gnd 1.08e-13
 Rc c1 c2 0.18
-Cc c2 gnd 1.08e-13
+Cc c1 gnd 1.08e-13
 X1 r1 c1 gap RRAM_v0 
 .ends CELL
 
 
 ** Crossbar instantiation **
 Xcell_0_0 row_0_0 row_0_1 col_0_0 col_1_0 gap_0_0 CELL
-.nodeset v(gap_0_0)=0.85
+.ic v(gap_0_0)=0.85
 Xcell_0_1 row_0_1 row_0_2 col_0_1 col_1_1 gap_0_1 CELL
-.nodeset v(gap_0_1)=0.85
+.ic v(gap_0_1)=0.85
 Xcell_1_0 row_1_0 row_1_1 col_1_0 col_2_0 gap_1_0 CELL
-.nodeset v(gap_1_0)=0.85
+.ic v(gap_1_0)=0.85
 Xcell_1_1 row_1_1 row_1_2 col_1_1 col_2_1 gap_1_1 CELL
-.nodeset v(gap_1_1)=0.85
+.ic v(gap_1_1)=0.85
 
 
 ** PWL voltage waveforms **

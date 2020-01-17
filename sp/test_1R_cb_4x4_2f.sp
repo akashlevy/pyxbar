@@ -5,7 +5,7 @@
 
 
 ** Load models **
-.hdl ../models/rram_wp.va
+.hdl ../models/rram_wp_akash.va
 
 ** Options **
 .option post=2
@@ -18,48 +18,47 @@
 
 ** Sub-circuits **
 .subckt CELL r1 r2 c1 c2 gap
-Ccell r1 c1 1f
 Rr r1 r2 0.18
-Cr r2 gnd 1.08e-13
+Cr r1 gnd 1.08e-13
 Rc c1 c2 0.18
-Cc c2 gnd 1.08e-13
+Cc c1 gnd 1.08e-13
 X1 r1 c1 gap RRAM_v0 
 .ends CELL
 
 
 ** Crossbar instantiation **
 Xcell_0_0 row_0_0 row_0_1 col_0_0 col_1_0 gap_0_0 CELL
-.nodeset v(gap_0_0)=0.85
+.ic v(gap_0_0)=0.85
 Xcell_0_1 row_0_1 row_0_2 col_0_1 col_1_1 gap_0_1 CELL
-.nodeset v(gap_0_1)=0.85
+.ic v(gap_0_1)=0.85
 Xcell_0_2 row_0_2 row_0_3 col_0_2 col_1_2 gap_0_2 CELL
-.nodeset v(gap_0_2)=0.85
+.ic v(gap_0_2)=0.85
 Xcell_0_3 row_0_3 row_0_4 col_0_3 col_1_3 gap_0_3 CELL
-.nodeset v(gap_0_3)=0.85
+.ic v(gap_0_3)=0.85
 Xcell_1_0 row_1_0 row_1_1 col_1_0 col_2_0 gap_1_0 CELL
-.nodeset v(gap_1_0)=0.85
+.ic v(gap_1_0)=0.85
 Xcell_1_1 row_1_1 row_1_2 col_1_1 col_2_1 gap_1_1 CELL
-.nodeset v(gap_1_1)=0.85
+.ic v(gap_1_1)=0.85
 Xcell_1_2 row_1_2 row_1_3 col_1_2 col_2_2 gap_1_2 CELL
-.nodeset v(gap_1_2)=0.85
+.ic v(gap_1_2)=0.85
 Xcell_1_3 row_1_3 row_1_4 col_1_3 col_2_3 gap_1_3 CELL
-.nodeset v(gap_1_3)=0.85
+.ic v(gap_1_3)=0.85
 Xcell_2_0 row_2_0 row_2_1 col_2_0 col_3_0 gap_2_0 CELL
-.nodeset v(gap_2_0)=0.85
+.ic v(gap_2_0)=0.85
 Xcell_2_1 row_2_1 row_2_2 col_2_1 col_3_1 gap_2_1 CELL
-.nodeset v(gap_2_1)=0.85
+.ic v(gap_2_1)=0.85
 Xcell_2_2 row_2_2 row_2_3 col_2_2 col_3_2 gap_2_2 CELL
-.nodeset v(gap_2_2)=0.85
+.ic v(gap_2_2)=0.85
 Xcell_2_3 row_2_3 row_2_4 col_2_3 col_3_3 gap_2_3 CELL
-.nodeset v(gap_2_3)=0.85
+.ic v(gap_2_3)=0.85
 Xcell_3_0 row_3_0 row_3_1 col_3_0 col_4_0 gap_3_0 CELL
-.nodeset v(gap_3_0)=0.85
+.ic v(gap_3_0)=0.85
 Xcell_3_1 row_3_1 row_3_2 col_3_1 col_4_1 gap_3_1 CELL
-.nodeset v(gap_3_1)=0.85
+.ic v(gap_3_1)=0.85
 Xcell_3_2 row_3_2 row_3_3 col_3_2 col_4_2 gap_3_2 CELL
-.nodeset v(gap_3_2)=0.85
+.ic v(gap_3_2)=0.85
 Xcell_3_3 row_3_3 row_3_4 col_3_3 col_4_3 gap_3_3 CELL
-.nodeset v(gap_3_3)=0.85
+.ic v(gap_3_3)=0.85
 
 
 ** PWL voltage waveforms **

@@ -5,7 +5,7 @@
 
 
 ** Load models **
-.hdl ../models/rram_wp.va
+.hdl ../models/rram_wp_akash.va
 
 ** Options **
 .option post=2
@@ -123,9 +123,9 @@
 ** Sub-circuits **
 .subckt CELL r1 r2 c1 c2 mid gap1 gap2
 Rr r1 r2 0.18
-Cr r2 gnd 1.08e-13
+Cr r1 gnd 1.08e-13
 Rc c1 c2 0.18
-Cc c2 gnd 1.08e-13
+Cc c1 gnd 1.08e-13
 X1 r1 mid gap1 RRAM_v0 
 X2 c1 mid gap2 RRAM_v0 
 .ends CELL
@@ -133,773 +133,517 @@ X2 c1 mid gap2 RRAM_v0
 
 ** Crossbar instantiation **
 Xcell_0_0 row_0_0 row_0_1 col_0_0 col_1_0 mid_0_0 gap1_0_0 gap2_0_0 CELL
-.nodeset v(gap1_0_0)=0.85
-.nodeset v(gap2_0_0)=0.85
+.ic v(gap1_0_0)=0.85 v(gap2_0_0)=0.85
 Xcell_0_1 row_0_1 row_0_2 col_0_1 col_1_1 mid_0_1 gap1_0_1 gap2_0_1 CELL
-.nodeset v(gap1_0_1)=0.85
-.nodeset v(gap2_0_1)=0.85
+.ic v(gap1_0_1)=0.85 v(gap2_0_1)=0.85
 Xcell_0_2 row_0_2 row_0_3 col_0_2 col_1_2 mid_0_2 gap1_0_2 gap2_0_2 CELL
-.nodeset v(gap1_0_2)=0.85
-.nodeset v(gap2_0_2)=0.85
+.ic v(gap1_0_2)=0.85 v(gap2_0_2)=0.85
 Xcell_0_3 row_0_3 row_0_4 col_0_3 col_1_3 mid_0_3 gap1_0_3 gap2_0_3 CELL
-.nodeset v(gap1_0_3)=0.85
-.nodeset v(gap2_0_3)=0.85
+.ic v(gap1_0_3)=0.85 v(gap2_0_3)=0.85
 Xcell_0_4 row_0_4 row_0_5 col_0_4 col_1_4 mid_0_4 gap1_0_4 gap2_0_4 CELL
-.nodeset v(gap1_0_4)=0.85
-.nodeset v(gap2_0_4)=0.85
+.ic v(gap1_0_4)=0.85 v(gap2_0_4)=0.85
 Xcell_0_5 row_0_5 row_0_6 col_0_5 col_1_5 mid_0_5 gap1_0_5 gap2_0_5 CELL
-.nodeset v(gap1_0_5)=0.85
-.nodeset v(gap2_0_5)=0.85
+.ic v(gap1_0_5)=0.85 v(gap2_0_5)=0.85
 Xcell_0_6 row_0_6 row_0_7 col_0_6 col_1_6 mid_0_6 gap1_0_6 gap2_0_6 CELL
-.nodeset v(gap1_0_6)=0.85
-.nodeset v(gap2_0_6)=0.85
+.ic v(gap1_0_6)=0.85 v(gap2_0_6)=0.85
 Xcell_0_7 row_0_7 row_0_8 col_0_7 col_1_7 mid_0_7 gap1_0_7 gap2_0_7 CELL
-.nodeset v(gap1_0_7)=0.85
-.nodeset v(gap2_0_7)=0.85
+.ic v(gap1_0_7)=0.85 v(gap2_0_7)=0.85
 Xcell_0_8 row_0_8 row_0_9 col_0_8 col_1_8 mid_0_8 gap1_0_8 gap2_0_8 CELL
-.nodeset v(gap1_0_8)=0.85
-.nodeset v(gap2_0_8)=0.85
+.ic v(gap1_0_8)=0.85 v(gap2_0_8)=0.85
 Xcell_0_9 row_0_9 row_0_10 col_0_9 col_1_9 mid_0_9 gap1_0_9 gap2_0_9 CELL
-.nodeset v(gap1_0_9)=0.85
-.nodeset v(gap2_0_9)=0.85
+.ic v(gap1_0_9)=0.85 v(gap2_0_9)=0.85
 Xcell_0_10 row_0_10 row_0_11 col_0_10 col_1_10 mid_0_10 gap1_0_10 gap2_0_10 CELL
-.nodeset v(gap1_0_10)=0.85
-.nodeset v(gap2_0_10)=0.85
+.ic v(gap1_0_10)=0.85 v(gap2_0_10)=0.85
 Xcell_0_11 row_0_11 row_0_12 col_0_11 col_1_11 mid_0_11 gap1_0_11 gap2_0_11 CELL
-.nodeset v(gap1_0_11)=0.85
-.nodeset v(gap2_0_11)=0.85
+.ic v(gap1_0_11)=0.85 v(gap2_0_11)=0.85
 Xcell_0_12 row_0_12 row_0_13 col_0_12 col_1_12 mid_0_12 gap1_0_12 gap2_0_12 CELL
-.nodeset v(gap1_0_12)=0.85
-.nodeset v(gap2_0_12)=0.85
+.ic v(gap1_0_12)=0.85 v(gap2_0_12)=0.85
 Xcell_0_13 row_0_13 row_0_14 col_0_13 col_1_13 mid_0_13 gap1_0_13 gap2_0_13 CELL
-.nodeset v(gap1_0_13)=0.85
-.nodeset v(gap2_0_13)=0.85
+.ic v(gap1_0_13)=0.85 v(gap2_0_13)=0.85
 Xcell_0_14 row_0_14 row_0_15 col_0_14 col_1_14 mid_0_14 gap1_0_14 gap2_0_14 CELL
-.nodeset v(gap1_0_14)=0.85
-.nodeset v(gap2_0_14)=0.85
+.ic v(gap1_0_14)=0.85 v(gap2_0_14)=0.85
 Xcell_0_15 row_0_15 row_0_16 col_0_15 col_1_15 mid_0_15 gap1_0_15 gap2_0_15 CELL
-.nodeset v(gap1_0_15)=0.85
-.nodeset v(gap2_0_15)=0.85
+.ic v(gap1_0_15)=0.85 v(gap2_0_15)=0.85
 Xcell_1_0 row_1_0 row_1_1 col_1_0 col_2_0 mid_1_0 gap1_1_0 gap2_1_0 CELL
-.nodeset v(gap1_1_0)=0.85
-.nodeset v(gap2_1_0)=0.85
+.ic v(gap1_1_0)=0.85 v(gap2_1_0)=0.85
 Xcell_1_1 row_1_1 row_1_2 col_1_1 col_2_1 mid_1_1 gap1_1_1 gap2_1_1 CELL
-.nodeset v(gap1_1_1)=0.85
-.nodeset v(gap2_1_1)=0.85
+.ic v(gap1_1_1)=0.85 v(gap2_1_1)=0.85
 Xcell_1_2 row_1_2 row_1_3 col_1_2 col_2_2 mid_1_2 gap1_1_2 gap2_1_2 CELL
-.nodeset v(gap1_1_2)=0.85
-.nodeset v(gap2_1_2)=0.85
+.ic v(gap1_1_2)=0.85 v(gap2_1_2)=0.85
 Xcell_1_3 row_1_3 row_1_4 col_1_3 col_2_3 mid_1_3 gap1_1_3 gap2_1_3 CELL
-.nodeset v(gap1_1_3)=0.85
-.nodeset v(gap2_1_3)=0.85
+.ic v(gap1_1_3)=0.85 v(gap2_1_3)=0.85
 Xcell_1_4 row_1_4 row_1_5 col_1_4 col_2_4 mid_1_4 gap1_1_4 gap2_1_4 CELL
-.nodeset v(gap1_1_4)=0.85
-.nodeset v(gap2_1_4)=0.85
+.ic v(gap1_1_4)=0.85 v(gap2_1_4)=0.85
 Xcell_1_5 row_1_5 row_1_6 col_1_5 col_2_5 mid_1_5 gap1_1_5 gap2_1_5 CELL
-.nodeset v(gap1_1_5)=0.85
-.nodeset v(gap2_1_5)=0.85
+.ic v(gap1_1_5)=0.85 v(gap2_1_5)=0.85
 Xcell_1_6 row_1_6 row_1_7 col_1_6 col_2_6 mid_1_6 gap1_1_6 gap2_1_6 CELL
-.nodeset v(gap1_1_6)=0.85
-.nodeset v(gap2_1_6)=0.85
+.ic v(gap1_1_6)=0.85 v(gap2_1_6)=0.85
 Xcell_1_7 row_1_7 row_1_8 col_1_7 col_2_7 mid_1_7 gap1_1_7 gap2_1_7 CELL
-.nodeset v(gap1_1_7)=0.85
-.nodeset v(gap2_1_7)=0.85
+.ic v(gap1_1_7)=0.85 v(gap2_1_7)=0.85
 Xcell_1_8 row_1_8 row_1_9 col_1_8 col_2_8 mid_1_8 gap1_1_8 gap2_1_8 CELL
-.nodeset v(gap1_1_8)=0.85
-.nodeset v(gap2_1_8)=0.85
+.ic v(gap1_1_8)=0.85 v(gap2_1_8)=0.85
 Xcell_1_9 row_1_9 row_1_10 col_1_9 col_2_9 mid_1_9 gap1_1_9 gap2_1_9 CELL
-.nodeset v(gap1_1_9)=0.85
-.nodeset v(gap2_1_9)=0.85
+.ic v(gap1_1_9)=0.85 v(gap2_1_9)=0.85
 Xcell_1_10 row_1_10 row_1_11 col_1_10 col_2_10 mid_1_10 gap1_1_10 gap2_1_10 CELL
-.nodeset v(gap1_1_10)=0.85
-.nodeset v(gap2_1_10)=0.85
+.ic v(gap1_1_10)=0.85 v(gap2_1_10)=0.85
 Xcell_1_11 row_1_11 row_1_12 col_1_11 col_2_11 mid_1_11 gap1_1_11 gap2_1_11 CELL
-.nodeset v(gap1_1_11)=0.85
-.nodeset v(gap2_1_11)=0.85
+.ic v(gap1_1_11)=0.85 v(gap2_1_11)=0.85
 Xcell_1_12 row_1_12 row_1_13 col_1_12 col_2_12 mid_1_12 gap1_1_12 gap2_1_12 CELL
-.nodeset v(gap1_1_12)=0.85
-.nodeset v(gap2_1_12)=0.85
+.ic v(gap1_1_12)=0.85 v(gap2_1_12)=0.85
 Xcell_1_13 row_1_13 row_1_14 col_1_13 col_2_13 mid_1_13 gap1_1_13 gap2_1_13 CELL
-.nodeset v(gap1_1_13)=0.85
-.nodeset v(gap2_1_13)=0.85
+.ic v(gap1_1_13)=0.85 v(gap2_1_13)=0.85
 Xcell_1_14 row_1_14 row_1_15 col_1_14 col_2_14 mid_1_14 gap1_1_14 gap2_1_14 CELL
-.nodeset v(gap1_1_14)=0.85
-.nodeset v(gap2_1_14)=0.85
+.ic v(gap1_1_14)=0.85 v(gap2_1_14)=0.85
 Xcell_1_15 row_1_15 row_1_16 col_1_15 col_2_15 mid_1_15 gap1_1_15 gap2_1_15 CELL
-.nodeset v(gap1_1_15)=0.85
-.nodeset v(gap2_1_15)=0.85
+.ic v(gap1_1_15)=0.85 v(gap2_1_15)=0.85
 Xcell_2_0 row_2_0 row_2_1 col_2_0 col_3_0 mid_2_0 gap1_2_0 gap2_2_0 CELL
-.nodeset v(gap1_2_0)=0.85
-.nodeset v(gap2_2_0)=0.85
+.ic v(gap1_2_0)=0.85 v(gap2_2_0)=0.85
 Xcell_2_1 row_2_1 row_2_2 col_2_1 col_3_1 mid_2_1 gap1_2_1 gap2_2_1 CELL
-.nodeset v(gap1_2_1)=0.85
-.nodeset v(gap2_2_1)=0.85
+.ic v(gap1_2_1)=0.85 v(gap2_2_1)=0.85
 Xcell_2_2 row_2_2 row_2_3 col_2_2 col_3_2 mid_2_2 gap1_2_2 gap2_2_2 CELL
-.nodeset v(gap1_2_2)=0.85
-.nodeset v(gap2_2_2)=0.85
+.ic v(gap1_2_2)=0.85 v(gap2_2_2)=0.85
 Xcell_2_3 row_2_3 row_2_4 col_2_3 col_3_3 mid_2_3 gap1_2_3 gap2_2_3 CELL
-.nodeset v(gap1_2_3)=0.85
-.nodeset v(gap2_2_3)=0.85
+.ic v(gap1_2_3)=0.85 v(gap2_2_3)=0.85
 Xcell_2_4 row_2_4 row_2_5 col_2_4 col_3_4 mid_2_4 gap1_2_4 gap2_2_4 CELL
-.nodeset v(gap1_2_4)=0.85
-.nodeset v(gap2_2_4)=0.85
+.ic v(gap1_2_4)=0.85 v(gap2_2_4)=0.85
 Xcell_2_5 row_2_5 row_2_6 col_2_5 col_3_5 mid_2_5 gap1_2_5 gap2_2_5 CELL
-.nodeset v(gap1_2_5)=0.85
-.nodeset v(gap2_2_5)=0.85
+.ic v(gap1_2_5)=0.85 v(gap2_2_5)=0.85
 Xcell_2_6 row_2_6 row_2_7 col_2_6 col_3_6 mid_2_6 gap1_2_6 gap2_2_6 CELL
-.nodeset v(gap1_2_6)=0.85
-.nodeset v(gap2_2_6)=0.85
+.ic v(gap1_2_6)=0.85 v(gap2_2_6)=0.85
 Xcell_2_7 row_2_7 row_2_8 col_2_7 col_3_7 mid_2_7 gap1_2_7 gap2_2_7 CELL
-.nodeset v(gap1_2_7)=0.85
-.nodeset v(gap2_2_7)=0.85
+.ic v(gap1_2_7)=0.85 v(gap2_2_7)=0.85
 Xcell_2_8 row_2_8 row_2_9 col_2_8 col_3_8 mid_2_8 gap1_2_8 gap2_2_8 CELL
-.nodeset v(gap1_2_8)=0.85
-.nodeset v(gap2_2_8)=0.85
+.ic v(gap1_2_8)=0.85 v(gap2_2_8)=0.85
 Xcell_2_9 row_2_9 row_2_10 col_2_9 col_3_9 mid_2_9 gap1_2_9 gap2_2_9 CELL
-.nodeset v(gap1_2_9)=0.85
-.nodeset v(gap2_2_9)=0.85
+.ic v(gap1_2_9)=0.85 v(gap2_2_9)=0.85
 Xcell_2_10 row_2_10 row_2_11 col_2_10 col_3_10 mid_2_10 gap1_2_10 gap2_2_10 CELL
-.nodeset v(gap1_2_10)=0.85
-.nodeset v(gap2_2_10)=0.85
+.ic v(gap1_2_10)=0.85 v(gap2_2_10)=0.85
 Xcell_2_11 row_2_11 row_2_12 col_2_11 col_3_11 mid_2_11 gap1_2_11 gap2_2_11 CELL
-.nodeset v(gap1_2_11)=0.85
-.nodeset v(gap2_2_11)=0.85
+.ic v(gap1_2_11)=0.85 v(gap2_2_11)=0.85
 Xcell_2_12 row_2_12 row_2_13 col_2_12 col_3_12 mid_2_12 gap1_2_12 gap2_2_12 CELL
-.nodeset v(gap1_2_12)=0.85
-.nodeset v(gap2_2_12)=0.85
+.ic v(gap1_2_12)=0.85 v(gap2_2_12)=0.85
 Xcell_2_13 row_2_13 row_2_14 col_2_13 col_3_13 mid_2_13 gap1_2_13 gap2_2_13 CELL
-.nodeset v(gap1_2_13)=0.85
-.nodeset v(gap2_2_13)=0.85
+.ic v(gap1_2_13)=0.85 v(gap2_2_13)=0.85
 Xcell_2_14 row_2_14 row_2_15 col_2_14 col_3_14 mid_2_14 gap1_2_14 gap2_2_14 CELL
-.nodeset v(gap1_2_14)=0.85
-.nodeset v(gap2_2_14)=0.85
+.ic v(gap1_2_14)=0.85 v(gap2_2_14)=0.85
 Xcell_2_15 row_2_15 row_2_16 col_2_15 col_3_15 mid_2_15 gap1_2_15 gap2_2_15 CELL
-.nodeset v(gap1_2_15)=0.85
-.nodeset v(gap2_2_15)=0.85
+.ic v(gap1_2_15)=0.85 v(gap2_2_15)=0.85
 Xcell_3_0 row_3_0 row_3_1 col_3_0 col_4_0 mid_3_0 gap1_3_0 gap2_3_0 CELL
-.nodeset v(gap1_3_0)=0.85
-.nodeset v(gap2_3_0)=0.85
+.ic v(gap1_3_0)=0.85 v(gap2_3_0)=0.85
 Xcell_3_1 row_3_1 row_3_2 col_3_1 col_4_1 mid_3_1 gap1_3_1 gap2_3_1 CELL
-.nodeset v(gap1_3_1)=0.85
-.nodeset v(gap2_3_1)=0.85
+.ic v(gap1_3_1)=0.85 v(gap2_3_1)=0.85
 Xcell_3_2 row_3_2 row_3_3 col_3_2 col_4_2 mid_3_2 gap1_3_2 gap2_3_2 CELL
-.nodeset v(gap1_3_2)=0.85
-.nodeset v(gap2_3_2)=0.85
+.ic v(gap1_3_2)=0.85 v(gap2_3_2)=0.85
 Xcell_3_3 row_3_3 row_3_4 col_3_3 col_4_3 mid_3_3 gap1_3_3 gap2_3_3 CELL
-.nodeset v(gap1_3_3)=0.85
-.nodeset v(gap2_3_3)=0.85
+.ic v(gap1_3_3)=0.85 v(gap2_3_3)=0.85
 Xcell_3_4 row_3_4 row_3_5 col_3_4 col_4_4 mid_3_4 gap1_3_4 gap2_3_4 CELL
-.nodeset v(gap1_3_4)=0.85
-.nodeset v(gap2_3_4)=0.85
+.ic v(gap1_3_4)=0.85 v(gap2_3_4)=0.85
 Xcell_3_5 row_3_5 row_3_6 col_3_5 col_4_5 mid_3_5 gap1_3_5 gap2_3_5 CELL
-.nodeset v(gap1_3_5)=0.85
-.nodeset v(gap2_3_5)=0.85
+.ic v(gap1_3_5)=0.85 v(gap2_3_5)=0.85
 Xcell_3_6 row_3_6 row_3_7 col_3_6 col_4_6 mid_3_6 gap1_3_6 gap2_3_6 CELL
-.nodeset v(gap1_3_6)=0.85
-.nodeset v(gap2_3_6)=0.85
+.ic v(gap1_3_6)=0.85 v(gap2_3_6)=0.85
 Xcell_3_7 row_3_7 row_3_8 col_3_7 col_4_7 mid_3_7 gap1_3_7 gap2_3_7 CELL
-.nodeset v(gap1_3_7)=0.85
-.nodeset v(gap2_3_7)=0.85
+.ic v(gap1_3_7)=0.85 v(gap2_3_7)=0.85
 Xcell_3_8 row_3_8 row_3_9 col_3_8 col_4_8 mid_3_8 gap1_3_8 gap2_3_8 CELL
-.nodeset v(gap1_3_8)=0.85
-.nodeset v(gap2_3_8)=0.85
+.ic v(gap1_3_8)=0.85 v(gap2_3_8)=0.85
 Xcell_3_9 row_3_9 row_3_10 col_3_9 col_4_9 mid_3_9 gap1_3_9 gap2_3_9 CELL
-.nodeset v(gap1_3_9)=0.85
-.nodeset v(gap2_3_9)=0.85
+.ic v(gap1_3_9)=0.85 v(gap2_3_9)=0.85
 Xcell_3_10 row_3_10 row_3_11 col_3_10 col_4_10 mid_3_10 gap1_3_10 gap2_3_10 CELL
-.nodeset v(gap1_3_10)=0.85
-.nodeset v(gap2_3_10)=0.85
+.ic v(gap1_3_10)=0.85 v(gap2_3_10)=0.85
 Xcell_3_11 row_3_11 row_3_12 col_3_11 col_4_11 mid_3_11 gap1_3_11 gap2_3_11 CELL
-.nodeset v(gap1_3_11)=0.85
-.nodeset v(gap2_3_11)=0.85
+.ic v(gap1_3_11)=0.85 v(gap2_3_11)=0.85
 Xcell_3_12 row_3_12 row_3_13 col_3_12 col_4_12 mid_3_12 gap1_3_12 gap2_3_12 CELL
-.nodeset v(gap1_3_12)=0.85
-.nodeset v(gap2_3_12)=0.85
+.ic v(gap1_3_12)=0.85 v(gap2_3_12)=0.85
 Xcell_3_13 row_3_13 row_3_14 col_3_13 col_4_13 mid_3_13 gap1_3_13 gap2_3_13 CELL
-.nodeset v(gap1_3_13)=0.85
-.nodeset v(gap2_3_13)=0.85
+.ic v(gap1_3_13)=0.85 v(gap2_3_13)=0.85
 Xcell_3_14 row_3_14 row_3_15 col_3_14 col_4_14 mid_3_14 gap1_3_14 gap2_3_14 CELL
-.nodeset v(gap1_3_14)=0.85
-.nodeset v(gap2_3_14)=0.85
+.ic v(gap1_3_14)=0.85 v(gap2_3_14)=0.85
 Xcell_3_15 row_3_15 row_3_16 col_3_15 col_4_15 mid_3_15 gap1_3_15 gap2_3_15 CELL
-.nodeset v(gap1_3_15)=0.85
-.nodeset v(gap2_3_15)=0.85
+.ic v(gap1_3_15)=0.85 v(gap2_3_15)=0.85
 Xcell_4_0 row_4_0 row_4_1 col_4_0 col_5_0 mid_4_0 gap1_4_0 gap2_4_0 CELL
-.nodeset v(gap1_4_0)=0.85
-.nodeset v(gap2_4_0)=0.85
+.ic v(gap1_4_0)=0.85 v(gap2_4_0)=0.85
 Xcell_4_1 row_4_1 row_4_2 col_4_1 col_5_1 mid_4_1 gap1_4_1 gap2_4_1 CELL
-.nodeset v(gap1_4_1)=0.85
-.nodeset v(gap2_4_1)=0.85
+.ic v(gap1_4_1)=0.85 v(gap2_4_1)=0.85
 Xcell_4_2 row_4_2 row_4_3 col_4_2 col_5_2 mid_4_2 gap1_4_2 gap2_4_2 CELL
-.nodeset v(gap1_4_2)=0.85
-.nodeset v(gap2_4_2)=0.85
+.ic v(gap1_4_2)=0.85 v(gap2_4_2)=0.85
 Xcell_4_3 row_4_3 row_4_4 col_4_3 col_5_3 mid_4_3 gap1_4_3 gap2_4_3 CELL
-.nodeset v(gap1_4_3)=0.85
-.nodeset v(gap2_4_3)=0.85
+.ic v(gap1_4_3)=0.85 v(gap2_4_3)=0.85
 Xcell_4_4 row_4_4 row_4_5 col_4_4 col_5_4 mid_4_4 gap1_4_4 gap2_4_4 CELL
-.nodeset v(gap1_4_4)=0.85
-.nodeset v(gap2_4_4)=0.85
+.ic v(gap1_4_4)=0.85 v(gap2_4_4)=0.85
 Xcell_4_5 row_4_5 row_4_6 col_4_5 col_5_5 mid_4_5 gap1_4_5 gap2_4_5 CELL
-.nodeset v(gap1_4_5)=0.85
-.nodeset v(gap2_4_5)=0.85
+.ic v(gap1_4_5)=0.85 v(gap2_4_5)=0.85
 Xcell_4_6 row_4_6 row_4_7 col_4_6 col_5_6 mid_4_6 gap1_4_6 gap2_4_6 CELL
-.nodeset v(gap1_4_6)=0.85
-.nodeset v(gap2_4_6)=0.85
+.ic v(gap1_4_6)=0.85 v(gap2_4_6)=0.85
 Xcell_4_7 row_4_7 row_4_8 col_4_7 col_5_7 mid_4_7 gap1_4_7 gap2_4_7 CELL
-.nodeset v(gap1_4_7)=0.85
-.nodeset v(gap2_4_7)=0.85
+.ic v(gap1_4_7)=0.85 v(gap2_4_7)=0.85
 Xcell_4_8 row_4_8 row_4_9 col_4_8 col_5_8 mid_4_8 gap1_4_8 gap2_4_8 CELL
-.nodeset v(gap1_4_8)=0.85
-.nodeset v(gap2_4_8)=0.85
+.ic v(gap1_4_8)=0.85 v(gap2_4_8)=0.85
 Xcell_4_9 row_4_9 row_4_10 col_4_9 col_5_9 mid_4_9 gap1_4_9 gap2_4_9 CELL
-.nodeset v(gap1_4_9)=0.85
-.nodeset v(gap2_4_9)=0.85
+.ic v(gap1_4_9)=0.85 v(gap2_4_9)=0.85
 Xcell_4_10 row_4_10 row_4_11 col_4_10 col_5_10 mid_4_10 gap1_4_10 gap2_4_10 CELL
-.nodeset v(gap1_4_10)=0.85
-.nodeset v(gap2_4_10)=0.85
+.ic v(gap1_4_10)=0.85 v(gap2_4_10)=0.85
 Xcell_4_11 row_4_11 row_4_12 col_4_11 col_5_11 mid_4_11 gap1_4_11 gap2_4_11 CELL
-.nodeset v(gap1_4_11)=0.85
-.nodeset v(gap2_4_11)=0.85
+.ic v(gap1_4_11)=0.85 v(gap2_4_11)=0.85
 Xcell_4_12 row_4_12 row_4_13 col_4_12 col_5_12 mid_4_12 gap1_4_12 gap2_4_12 CELL
-.nodeset v(gap1_4_12)=0.85
-.nodeset v(gap2_4_12)=0.85
+.ic v(gap1_4_12)=0.85 v(gap2_4_12)=0.85
 Xcell_4_13 row_4_13 row_4_14 col_4_13 col_5_13 mid_4_13 gap1_4_13 gap2_4_13 CELL
-.nodeset v(gap1_4_13)=0.85
-.nodeset v(gap2_4_13)=0.85
+.ic v(gap1_4_13)=0.85 v(gap2_4_13)=0.85
 Xcell_4_14 row_4_14 row_4_15 col_4_14 col_5_14 mid_4_14 gap1_4_14 gap2_4_14 CELL
-.nodeset v(gap1_4_14)=0.85
-.nodeset v(gap2_4_14)=0.85
+.ic v(gap1_4_14)=0.85 v(gap2_4_14)=0.85
 Xcell_4_15 row_4_15 row_4_16 col_4_15 col_5_15 mid_4_15 gap1_4_15 gap2_4_15 CELL
-.nodeset v(gap1_4_15)=0.85
-.nodeset v(gap2_4_15)=0.85
+.ic v(gap1_4_15)=0.85 v(gap2_4_15)=0.85
 Xcell_5_0 row_5_0 row_5_1 col_5_0 col_6_0 mid_5_0 gap1_5_0 gap2_5_0 CELL
-.nodeset v(gap1_5_0)=0.85
-.nodeset v(gap2_5_0)=0.85
+.ic v(gap1_5_0)=0.85 v(gap2_5_0)=0.85
 Xcell_5_1 row_5_1 row_5_2 col_5_1 col_6_1 mid_5_1 gap1_5_1 gap2_5_1 CELL
-.nodeset v(gap1_5_1)=0.85
-.nodeset v(gap2_5_1)=0.85
+.ic v(gap1_5_1)=0.85 v(gap2_5_1)=0.85
 Xcell_5_2 row_5_2 row_5_3 col_5_2 col_6_2 mid_5_2 gap1_5_2 gap2_5_2 CELL
-.nodeset v(gap1_5_2)=0.85
-.nodeset v(gap2_5_2)=0.85
+.ic v(gap1_5_2)=0.85 v(gap2_5_2)=0.85
 Xcell_5_3 row_5_3 row_5_4 col_5_3 col_6_3 mid_5_3 gap1_5_3 gap2_5_3 CELL
-.nodeset v(gap1_5_3)=0.85
-.nodeset v(gap2_5_3)=0.85
+.ic v(gap1_5_3)=0.85 v(gap2_5_3)=0.85
 Xcell_5_4 row_5_4 row_5_5 col_5_4 col_6_4 mid_5_4 gap1_5_4 gap2_5_4 CELL
-.nodeset v(gap1_5_4)=0.85
-.nodeset v(gap2_5_4)=0.85
+.ic v(gap1_5_4)=0.85 v(gap2_5_4)=0.85
 Xcell_5_5 row_5_5 row_5_6 col_5_5 col_6_5 mid_5_5 gap1_5_5 gap2_5_5 CELL
-.nodeset v(gap1_5_5)=0.85
-.nodeset v(gap2_5_5)=0.85
+.ic v(gap1_5_5)=0.85 v(gap2_5_5)=0.85
 Xcell_5_6 row_5_6 row_5_7 col_5_6 col_6_6 mid_5_6 gap1_5_6 gap2_5_6 CELL
-.nodeset v(gap1_5_6)=0.85
-.nodeset v(gap2_5_6)=0.85
+.ic v(gap1_5_6)=0.85 v(gap2_5_6)=0.85
 Xcell_5_7 row_5_7 row_5_8 col_5_7 col_6_7 mid_5_7 gap1_5_7 gap2_5_7 CELL
-.nodeset v(gap1_5_7)=0.85
-.nodeset v(gap2_5_7)=0.85
+.ic v(gap1_5_7)=0.85 v(gap2_5_7)=0.85
 Xcell_5_8 row_5_8 row_5_9 col_5_8 col_6_8 mid_5_8 gap1_5_8 gap2_5_8 CELL
-.nodeset v(gap1_5_8)=0.85
-.nodeset v(gap2_5_8)=0.85
+.ic v(gap1_5_8)=0.85 v(gap2_5_8)=0.85
 Xcell_5_9 row_5_9 row_5_10 col_5_9 col_6_9 mid_5_9 gap1_5_9 gap2_5_9 CELL
-.nodeset v(gap1_5_9)=0.85
-.nodeset v(gap2_5_9)=0.85
+.ic v(gap1_5_9)=0.85 v(gap2_5_9)=0.85
 Xcell_5_10 row_5_10 row_5_11 col_5_10 col_6_10 mid_5_10 gap1_5_10 gap2_5_10 CELL
-.nodeset v(gap1_5_10)=0.85
-.nodeset v(gap2_5_10)=0.85
+.ic v(gap1_5_10)=0.85 v(gap2_5_10)=0.85
 Xcell_5_11 row_5_11 row_5_12 col_5_11 col_6_11 mid_5_11 gap1_5_11 gap2_5_11 CELL
-.nodeset v(gap1_5_11)=0.85
-.nodeset v(gap2_5_11)=0.85
+.ic v(gap1_5_11)=0.85 v(gap2_5_11)=0.85
 Xcell_5_12 row_5_12 row_5_13 col_5_12 col_6_12 mid_5_12 gap1_5_12 gap2_5_12 CELL
-.nodeset v(gap1_5_12)=0.85
-.nodeset v(gap2_5_12)=0.85
+.ic v(gap1_5_12)=0.85 v(gap2_5_12)=0.85
 Xcell_5_13 row_5_13 row_5_14 col_5_13 col_6_13 mid_5_13 gap1_5_13 gap2_5_13 CELL
-.nodeset v(gap1_5_13)=0.85
-.nodeset v(gap2_5_13)=0.85
+.ic v(gap1_5_13)=0.85 v(gap2_5_13)=0.85
 Xcell_5_14 row_5_14 row_5_15 col_5_14 col_6_14 mid_5_14 gap1_5_14 gap2_5_14 CELL
-.nodeset v(gap1_5_14)=0.85
-.nodeset v(gap2_5_14)=0.85
+.ic v(gap1_5_14)=0.85 v(gap2_5_14)=0.85
 Xcell_5_15 row_5_15 row_5_16 col_5_15 col_6_15 mid_5_15 gap1_5_15 gap2_5_15 CELL
-.nodeset v(gap1_5_15)=0.85
-.nodeset v(gap2_5_15)=0.85
+.ic v(gap1_5_15)=0.85 v(gap2_5_15)=0.85
 Xcell_6_0 row_6_0 row_6_1 col_6_0 col_7_0 mid_6_0 gap1_6_0 gap2_6_0 CELL
-.nodeset v(gap1_6_0)=0.85
-.nodeset v(gap2_6_0)=0.85
+.ic v(gap1_6_0)=0.85 v(gap2_6_0)=0.85
 Xcell_6_1 row_6_1 row_6_2 col_6_1 col_7_1 mid_6_1 gap1_6_1 gap2_6_1 CELL
-.nodeset v(gap1_6_1)=0.85
-.nodeset v(gap2_6_1)=0.85
+.ic v(gap1_6_1)=0.85 v(gap2_6_1)=0.85
 Xcell_6_2 row_6_2 row_6_3 col_6_2 col_7_2 mid_6_2 gap1_6_2 gap2_6_2 CELL
-.nodeset v(gap1_6_2)=0.85
-.nodeset v(gap2_6_2)=0.85
+.ic v(gap1_6_2)=0.85 v(gap2_6_2)=0.85
 Xcell_6_3 row_6_3 row_6_4 col_6_3 col_7_3 mid_6_3 gap1_6_3 gap2_6_3 CELL
-.nodeset v(gap1_6_3)=0.85
-.nodeset v(gap2_6_3)=0.85
+.ic v(gap1_6_3)=0.85 v(gap2_6_3)=0.85
 Xcell_6_4 row_6_4 row_6_5 col_6_4 col_7_4 mid_6_4 gap1_6_4 gap2_6_4 CELL
-.nodeset v(gap1_6_4)=0.85
-.nodeset v(gap2_6_4)=0.85
+.ic v(gap1_6_4)=0.85 v(gap2_6_4)=0.85
 Xcell_6_5 row_6_5 row_6_6 col_6_5 col_7_5 mid_6_5 gap1_6_5 gap2_6_5 CELL
-.nodeset v(gap1_6_5)=0.85
-.nodeset v(gap2_6_5)=0.85
+.ic v(gap1_6_5)=0.85 v(gap2_6_5)=0.85
 Xcell_6_6 row_6_6 row_6_7 col_6_6 col_7_6 mid_6_6 gap1_6_6 gap2_6_6 CELL
-.nodeset v(gap1_6_6)=0.85
-.nodeset v(gap2_6_6)=0.85
+.ic v(gap1_6_6)=0.85 v(gap2_6_6)=0.85
 Xcell_6_7 row_6_7 row_6_8 col_6_7 col_7_7 mid_6_7 gap1_6_7 gap2_6_7 CELL
-.nodeset v(gap1_6_7)=0.85
-.nodeset v(gap2_6_7)=0.85
+.ic v(gap1_6_7)=0.85 v(gap2_6_7)=0.85
 Xcell_6_8 row_6_8 row_6_9 col_6_8 col_7_8 mid_6_8 gap1_6_8 gap2_6_8 CELL
-.nodeset v(gap1_6_8)=0.85
-.nodeset v(gap2_6_8)=0.85
+.ic v(gap1_6_8)=0.85 v(gap2_6_8)=0.85
 Xcell_6_9 row_6_9 row_6_10 col_6_9 col_7_9 mid_6_9 gap1_6_9 gap2_6_9 CELL
-.nodeset v(gap1_6_9)=0.85
-.nodeset v(gap2_6_9)=0.85
+.ic v(gap1_6_9)=0.85 v(gap2_6_9)=0.85
 Xcell_6_10 row_6_10 row_6_11 col_6_10 col_7_10 mid_6_10 gap1_6_10 gap2_6_10 CELL
-.nodeset v(gap1_6_10)=0.85
-.nodeset v(gap2_6_10)=0.85
+.ic v(gap1_6_10)=0.85 v(gap2_6_10)=0.85
 Xcell_6_11 row_6_11 row_6_12 col_6_11 col_7_11 mid_6_11 gap1_6_11 gap2_6_11 CELL
-.nodeset v(gap1_6_11)=0.85
-.nodeset v(gap2_6_11)=0.85
+.ic v(gap1_6_11)=0.85 v(gap2_6_11)=0.85
 Xcell_6_12 row_6_12 row_6_13 col_6_12 col_7_12 mid_6_12 gap1_6_12 gap2_6_12 CELL
-.nodeset v(gap1_6_12)=0.85
-.nodeset v(gap2_6_12)=0.85
+.ic v(gap1_6_12)=0.85 v(gap2_6_12)=0.85
 Xcell_6_13 row_6_13 row_6_14 col_6_13 col_7_13 mid_6_13 gap1_6_13 gap2_6_13 CELL
-.nodeset v(gap1_6_13)=0.85
-.nodeset v(gap2_6_13)=0.85
+.ic v(gap1_6_13)=0.85 v(gap2_6_13)=0.85
 Xcell_6_14 row_6_14 row_6_15 col_6_14 col_7_14 mid_6_14 gap1_6_14 gap2_6_14 CELL
-.nodeset v(gap1_6_14)=0.85
-.nodeset v(gap2_6_14)=0.85
+.ic v(gap1_6_14)=0.85 v(gap2_6_14)=0.85
 Xcell_6_15 row_6_15 row_6_16 col_6_15 col_7_15 mid_6_15 gap1_6_15 gap2_6_15 CELL
-.nodeset v(gap1_6_15)=0.85
-.nodeset v(gap2_6_15)=0.85
+.ic v(gap1_6_15)=0.85 v(gap2_6_15)=0.85
 Xcell_7_0 row_7_0 row_7_1 col_7_0 col_8_0 mid_7_0 gap1_7_0 gap2_7_0 CELL
-.nodeset v(gap1_7_0)=0.85
-.nodeset v(gap2_7_0)=0.85
+.ic v(gap1_7_0)=0.85 v(gap2_7_0)=0.85
 Xcell_7_1 row_7_1 row_7_2 col_7_1 col_8_1 mid_7_1 gap1_7_1 gap2_7_1 CELL
-.nodeset v(gap1_7_1)=0.85
-.nodeset v(gap2_7_1)=0.85
+.ic v(gap1_7_1)=0.85 v(gap2_7_1)=0.85
 Xcell_7_2 row_7_2 row_7_3 col_7_2 col_8_2 mid_7_2 gap1_7_2 gap2_7_2 CELL
-.nodeset v(gap1_7_2)=0.85
-.nodeset v(gap2_7_2)=0.85
+.ic v(gap1_7_2)=0.85 v(gap2_7_2)=0.85
 Xcell_7_3 row_7_3 row_7_4 col_7_3 col_8_3 mid_7_3 gap1_7_3 gap2_7_3 CELL
-.nodeset v(gap1_7_3)=0.85
-.nodeset v(gap2_7_3)=0.85
+.ic v(gap1_7_3)=0.85 v(gap2_7_3)=0.85
 Xcell_7_4 row_7_4 row_7_5 col_7_4 col_8_4 mid_7_4 gap1_7_4 gap2_7_4 CELL
-.nodeset v(gap1_7_4)=0.85
-.nodeset v(gap2_7_4)=0.85
+.ic v(gap1_7_4)=0.85 v(gap2_7_4)=0.85
 Xcell_7_5 row_7_5 row_7_6 col_7_5 col_8_5 mid_7_5 gap1_7_5 gap2_7_5 CELL
-.nodeset v(gap1_7_5)=0.85
-.nodeset v(gap2_7_5)=0.85
+.ic v(gap1_7_5)=0.85 v(gap2_7_5)=0.85
 Xcell_7_6 row_7_6 row_7_7 col_7_6 col_8_6 mid_7_6 gap1_7_6 gap2_7_6 CELL
-.nodeset v(gap1_7_6)=0.85
-.nodeset v(gap2_7_6)=0.85
+.ic v(gap1_7_6)=0.85 v(gap2_7_6)=0.85
 Xcell_7_7 row_7_7 row_7_8 col_7_7 col_8_7 mid_7_7 gap1_7_7 gap2_7_7 CELL
-.nodeset v(gap1_7_7)=0.85
-.nodeset v(gap2_7_7)=0.85
+.ic v(gap1_7_7)=0.85 v(gap2_7_7)=0.85
 Xcell_7_8 row_7_8 row_7_9 col_7_8 col_8_8 mid_7_8 gap1_7_8 gap2_7_8 CELL
-.nodeset v(gap1_7_8)=0.85
-.nodeset v(gap2_7_8)=0.85
+.ic v(gap1_7_8)=0.85 v(gap2_7_8)=0.85
 Xcell_7_9 row_7_9 row_7_10 col_7_9 col_8_9 mid_7_9 gap1_7_9 gap2_7_9 CELL
-.nodeset v(gap1_7_9)=0.85
-.nodeset v(gap2_7_9)=0.85
+.ic v(gap1_7_9)=0.85 v(gap2_7_9)=0.85
 Xcell_7_10 row_7_10 row_7_11 col_7_10 col_8_10 mid_7_10 gap1_7_10 gap2_7_10 CELL
-.nodeset v(gap1_7_10)=0.85
-.nodeset v(gap2_7_10)=0.85
+.ic v(gap1_7_10)=0.85 v(gap2_7_10)=0.85
 Xcell_7_11 row_7_11 row_7_12 col_7_11 col_8_11 mid_7_11 gap1_7_11 gap2_7_11 CELL
-.nodeset v(gap1_7_11)=0.85
-.nodeset v(gap2_7_11)=0.85
+.ic v(gap1_7_11)=0.85 v(gap2_7_11)=0.85
 Xcell_7_12 row_7_12 row_7_13 col_7_12 col_8_12 mid_7_12 gap1_7_12 gap2_7_12 CELL
-.nodeset v(gap1_7_12)=0.85
-.nodeset v(gap2_7_12)=0.85
+.ic v(gap1_7_12)=0.85 v(gap2_7_12)=0.85
 Xcell_7_13 row_7_13 row_7_14 col_7_13 col_8_13 mid_7_13 gap1_7_13 gap2_7_13 CELL
-.nodeset v(gap1_7_13)=0.85
-.nodeset v(gap2_7_13)=0.85
+.ic v(gap1_7_13)=0.85 v(gap2_7_13)=0.85
 Xcell_7_14 row_7_14 row_7_15 col_7_14 col_8_14 mid_7_14 gap1_7_14 gap2_7_14 CELL
-.nodeset v(gap1_7_14)=0.85
-.nodeset v(gap2_7_14)=0.85
+.ic v(gap1_7_14)=0.85 v(gap2_7_14)=0.85
 Xcell_7_15 row_7_15 row_7_16 col_7_15 col_8_15 mid_7_15 gap1_7_15 gap2_7_15 CELL
-.nodeset v(gap1_7_15)=0.85
-.nodeset v(gap2_7_15)=0.85
+.ic v(gap1_7_15)=0.85 v(gap2_7_15)=0.85
 Xcell_8_0 row_8_0 row_8_1 col_8_0 col_9_0 mid_8_0 gap1_8_0 gap2_8_0 CELL
-.nodeset v(gap1_8_0)=0.85
-.nodeset v(gap2_8_0)=0.85
+.ic v(gap1_8_0)=0.85 v(gap2_8_0)=0.85
 Xcell_8_1 row_8_1 row_8_2 col_8_1 col_9_1 mid_8_1 gap1_8_1 gap2_8_1 CELL
-.nodeset v(gap1_8_1)=0.85
-.nodeset v(gap2_8_1)=0.85
+.ic v(gap1_8_1)=0.85 v(gap2_8_1)=0.85
 Xcell_8_2 row_8_2 row_8_3 col_8_2 col_9_2 mid_8_2 gap1_8_2 gap2_8_2 CELL
-.nodeset v(gap1_8_2)=0.85
-.nodeset v(gap2_8_2)=0.85
+.ic v(gap1_8_2)=0.85 v(gap2_8_2)=0.85
 Xcell_8_3 row_8_3 row_8_4 col_8_3 col_9_3 mid_8_3 gap1_8_3 gap2_8_3 CELL
-.nodeset v(gap1_8_3)=0.85
-.nodeset v(gap2_8_3)=0.85
+.ic v(gap1_8_3)=0.85 v(gap2_8_3)=0.85
 Xcell_8_4 row_8_4 row_8_5 col_8_4 col_9_4 mid_8_4 gap1_8_4 gap2_8_4 CELL
-.nodeset v(gap1_8_4)=0.85
-.nodeset v(gap2_8_4)=0.85
+.ic v(gap1_8_4)=0.85 v(gap2_8_4)=0.85
 Xcell_8_5 row_8_5 row_8_6 col_8_5 col_9_5 mid_8_5 gap1_8_5 gap2_8_5 CELL
-.nodeset v(gap1_8_5)=0.85
-.nodeset v(gap2_8_5)=0.85
+.ic v(gap1_8_5)=0.85 v(gap2_8_5)=0.85
 Xcell_8_6 row_8_6 row_8_7 col_8_6 col_9_6 mid_8_6 gap1_8_6 gap2_8_6 CELL
-.nodeset v(gap1_8_6)=0.85
-.nodeset v(gap2_8_6)=0.85
+.ic v(gap1_8_6)=0.85 v(gap2_8_6)=0.85
 Xcell_8_7 row_8_7 row_8_8 col_8_7 col_9_7 mid_8_7 gap1_8_7 gap2_8_7 CELL
-.nodeset v(gap1_8_7)=0.85
-.nodeset v(gap2_8_7)=0.85
+.ic v(gap1_8_7)=0.85 v(gap2_8_7)=0.85
 Xcell_8_8 row_8_8 row_8_9 col_8_8 col_9_8 mid_8_8 gap1_8_8 gap2_8_8 CELL
-.nodeset v(gap1_8_8)=0.85
-.nodeset v(gap2_8_8)=0.85
+.ic v(gap1_8_8)=0.85 v(gap2_8_8)=0.85
 Xcell_8_9 row_8_9 row_8_10 col_8_9 col_9_9 mid_8_9 gap1_8_9 gap2_8_9 CELL
-.nodeset v(gap1_8_9)=0.85
-.nodeset v(gap2_8_9)=0.85
+.ic v(gap1_8_9)=0.85 v(gap2_8_9)=0.85
 Xcell_8_10 row_8_10 row_8_11 col_8_10 col_9_10 mid_8_10 gap1_8_10 gap2_8_10 CELL
-.nodeset v(gap1_8_10)=0.85
-.nodeset v(gap2_8_10)=0.85
+.ic v(gap1_8_10)=0.85 v(gap2_8_10)=0.85
 Xcell_8_11 row_8_11 row_8_12 col_8_11 col_9_11 mid_8_11 gap1_8_11 gap2_8_11 CELL
-.nodeset v(gap1_8_11)=0.85
-.nodeset v(gap2_8_11)=0.85
+.ic v(gap1_8_11)=0.85 v(gap2_8_11)=0.85
 Xcell_8_12 row_8_12 row_8_13 col_8_12 col_9_12 mid_8_12 gap1_8_12 gap2_8_12 CELL
-.nodeset v(gap1_8_12)=0.85
-.nodeset v(gap2_8_12)=0.85
+.ic v(gap1_8_12)=0.85 v(gap2_8_12)=0.85
 Xcell_8_13 row_8_13 row_8_14 col_8_13 col_9_13 mid_8_13 gap1_8_13 gap2_8_13 CELL
-.nodeset v(gap1_8_13)=0.85
-.nodeset v(gap2_8_13)=0.85
+.ic v(gap1_8_13)=0.85 v(gap2_8_13)=0.85
 Xcell_8_14 row_8_14 row_8_15 col_8_14 col_9_14 mid_8_14 gap1_8_14 gap2_8_14 CELL
-.nodeset v(gap1_8_14)=0.85
-.nodeset v(gap2_8_14)=0.85
+.ic v(gap1_8_14)=0.85 v(gap2_8_14)=0.85
 Xcell_8_15 row_8_15 row_8_16 col_8_15 col_9_15 mid_8_15 gap1_8_15 gap2_8_15 CELL
-.nodeset v(gap1_8_15)=0.85
-.nodeset v(gap2_8_15)=0.85
+.ic v(gap1_8_15)=0.85 v(gap2_8_15)=0.85
 Xcell_9_0 row_9_0 row_9_1 col_9_0 col_10_0 mid_9_0 gap1_9_0 gap2_9_0 CELL
-.nodeset v(gap1_9_0)=0.85
-.nodeset v(gap2_9_0)=0.85
+.ic v(gap1_9_0)=0.85 v(gap2_9_0)=0.85
 Xcell_9_1 row_9_1 row_9_2 col_9_1 col_10_1 mid_9_1 gap1_9_1 gap2_9_1 CELL
-.nodeset v(gap1_9_1)=0.85
-.nodeset v(gap2_9_1)=0.85
+.ic v(gap1_9_1)=0.85 v(gap2_9_1)=0.85
 Xcell_9_2 row_9_2 row_9_3 col_9_2 col_10_2 mid_9_2 gap1_9_2 gap2_9_2 CELL
-.nodeset v(gap1_9_2)=0.85
-.nodeset v(gap2_9_2)=0.85
+.ic v(gap1_9_2)=0.85 v(gap2_9_2)=0.85
 Xcell_9_3 row_9_3 row_9_4 col_9_3 col_10_3 mid_9_3 gap1_9_3 gap2_9_3 CELL
-.nodeset v(gap1_9_3)=0.85
-.nodeset v(gap2_9_3)=0.85
+.ic v(gap1_9_3)=0.85 v(gap2_9_3)=0.85
 Xcell_9_4 row_9_4 row_9_5 col_9_4 col_10_4 mid_9_4 gap1_9_4 gap2_9_4 CELL
-.nodeset v(gap1_9_4)=0.85
-.nodeset v(gap2_9_4)=0.85
+.ic v(gap1_9_4)=0.85 v(gap2_9_4)=0.85
 Xcell_9_5 row_9_5 row_9_6 col_9_5 col_10_5 mid_9_5 gap1_9_5 gap2_9_5 CELL
-.nodeset v(gap1_9_5)=0.85
-.nodeset v(gap2_9_5)=0.85
+.ic v(gap1_9_5)=0.85 v(gap2_9_5)=0.85
 Xcell_9_6 row_9_6 row_9_7 col_9_6 col_10_6 mid_9_6 gap1_9_6 gap2_9_6 CELL
-.nodeset v(gap1_9_6)=0.85
-.nodeset v(gap2_9_6)=0.85
+.ic v(gap1_9_6)=0.85 v(gap2_9_6)=0.85
 Xcell_9_7 row_9_7 row_9_8 col_9_7 col_10_7 mid_9_7 gap1_9_7 gap2_9_7 CELL
-.nodeset v(gap1_9_7)=0.85
-.nodeset v(gap2_9_7)=0.85
+.ic v(gap1_9_7)=0.85 v(gap2_9_7)=0.85
 Xcell_9_8 row_9_8 row_9_9 col_9_8 col_10_8 mid_9_8 gap1_9_8 gap2_9_8 CELL
-.nodeset v(gap1_9_8)=0.85
-.nodeset v(gap2_9_8)=0.85
+.ic v(gap1_9_8)=0.85 v(gap2_9_8)=0.85
 Xcell_9_9 row_9_9 row_9_10 col_9_9 col_10_9 mid_9_9 gap1_9_9 gap2_9_9 CELL
-.nodeset v(gap1_9_9)=0.85
-.nodeset v(gap2_9_9)=0.85
+.ic v(gap1_9_9)=0.85 v(gap2_9_9)=0.85
 Xcell_9_10 row_9_10 row_9_11 col_9_10 col_10_10 mid_9_10 gap1_9_10 gap2_9_10 CELL
-.nodeset v(gap1_9_10)=0.85
-.nodeset v(gap2_9_10)=0.85
+.ic v(gap1_9_10)=0.85 v(gap2_9_10)=0.85
 Xcell_9_11 row_9_11 row_9_12 col_9_11 col_10_11 mid_9_11 gap1_9_11 gap2_9_11 CELL
-.nodeset v(gap1_9_11)=0.85
-.nodeset v(gap2_9_11)=0.85
+.ic v(gap1_9_11)=0.85 v(gap2_9_11)=0.85
 Xcell_9_12 row_9_12 row_9_13 col_9_12 col_10_12 mid_9_12 gap1_9_12 gap2_9_12 CELL
-.nodeset v(gap1_9_12)=0.85
-.nodeset v(gap2_9_12)=0.85
+.ic v(gap1_9_12)=0.85 v(gap2_9_12)=0.85
 Xcell_9_13 row_9_13 row_9_14 col_9_13 col_10_13 mid_9_13 gap1_9_13 gap2_9_13 CELL
-.nodeset v(gap1_9_13)=0.85
-.nodeset v(gap2_9_13)=0.85
+.ic v(gap1_9_13)=0.85 v(gap2_9_13)=0.85
 Xcell_9_14 row_9_14 row_9_15 col_9_14 col_10_14 mid_9_14 gap1_9_14 gap2_9_14 CELL
-.nodeset v(gap1_9_14)=0.85
-.nodeset v(gap2_9_14)=0.85
+.ic v(gap1_9_14)=0.85 v(gap2_9_14)=0.85
 Xcell_9_15 row_9_15 row_9_16 col_9_15 col_10_15 mid_9_15 gap1_9_15 gap2_9_15 CELL
-.nodeset v(gap1_9_15)=0.85
-.nodeset v(gap2_9_15)=0.85
+.ic v(gap1_9_15)=0.85 v(gap2_9_15)=0.85
 Xcell_10_0 row_10_0 row_10_1 col_10_0 col_11_0 mid_10_0 gap1_10_0 gap2_10_0 CELL
-.nodeset v(gap1_10_0)=0.85
-.nodeset v(gap2_10_0)=0.85
+.ic v(gap1_10_0)=0.85 v(gap2_10_0)=0.85
 Xcell_10_1 row_10_1 row_10_2 col_10_1 col_11_1 mid_10_1 gap1_10_1 gap2_10_1 CELL
-.nodeset v(gap1_10_1)=0.85
-.nodeset v(gap2_10_1)=0.85
+.ic v(gap1_10_1)=0.85 v(gap2_10_1)=0.85
 Xcell_10_2 row_10_2 row_10_3 col_10_2 col_11_2 mid_10_2 gap1_10_2 gap2_10_2 CELL
-.nodeset v(gap1_10_2)=0.85
-.nodeset v(gap2_10_2)=0.85
+.ic v(gap1_10_2)=0.85 v(gap2_10_2)=0.85
 Xcell_10_3 row_10_3 row_10_4 col_10_3 col_11_3 mid_10_3 gap1_10_3 gap2_10_3 CELL
-.nodeset v(gap1_10_3)=0.85
-.nodeset v(gap2_10_3)=0.85
+.ic v(gap1_10_3)=0.85 v(gap2_10_3)=0.85
 Xcell_10_4 row_10_4 row_10_5 col_10_4 col_11_4 mid_10_4 gap1_10_4 gap2_10_4 CELL
-.nodeset v(gap1_10_4)=0.85
-.nodeset v(gap2_10_4)=0.85
+.ic v(gap1_10_4)=0.85 v(gap2_10_4)=0.85
 Xcell_10_5 row_10_5 row_10_6 col_10_5 col_11_5 mid_10_5 gap1_10_5 gap2_10_5 CELL
-.nodeset v(gap1_10_5)=0.85
-.nodeset v(gap2_10_5)=0.85
+.ic v(gap1_10_5)=0.85 v(gap2_10_5)=0.85
 Xcell_10_6 row_10_6 row_10_7 col_10_6 col_11_6 mid_10_6 gap1_10_6 gap2_10_6 CELL
-.nodeset v(gap1_10_6)=0.85
-.nodeset v(gap2_10_6)=0.85
+.ic v(gap1_10_6)=0.85 v(gap2_10_6)=0.85
 Xcell_10_7 row_10_7 row_10_8 col_10_7 col_11_7 mid_10_7 gap1_10_7 gap2_10_7 CELL
-.nodeset v(gap1_10_7)=0.85
-.nodeset v(gap2_10_7)=0.85
+.ic v(gap1_10_7)=0.85 v(gap2_10_7)=0.85
 Xcell_10_8 row_10_8 row_10_9 col_10_8 col_11_8 mid_10_8 gap1_10_8 gap2_10_8 CELL
-.nodeset v(gap1_10_8)=0.85
-.nodeset v(gap2_10_8)=0.85
+.ic v(gap1_10_8)=0.85 v(gap2_10_8)=0.85
 Xcell_10_9 row_10_9 row_10_10 col_10_9 col_11_9 mid_10_9 gap1_10_9 gap2_10_9 CELL
-.nodeset v(gap1_10_9)=0.85
-.nodeset v(gap2_10_9)=0.85
+.ic v(gap1_10_9)=0.85 v(gap2_10_9)=0.85
 Xcell_10_10 row_10_10 row_10_11 col_10_10 col_11_10 mid_10_10 gap1_10_10 gap2_10_10 CELL
-.nodeset v(gap1_10_10)=0.85
-.nodeset v(gap2_10_10)=0.85
+.ic v(gap1_10_10)=0.85 v(gap2_10_10)=0.85
 Xcell_10_11 row_10_11 row_10_12 col_10_11 col_11_11 mid_10_11 gap1_10_11 gap2_10_11 CELL
-.nodeset v(gap1_10_11)=0.85
-.nodeset v(gap2_10_11)=0.85
+.ic v(gap1_10_11)=0.85 v(gap2_10_11)=0.85
 Xcell_10_12 row_10_12 row_10_13 col_10_12 col_11_12 mid_10_12 gap1_10_12 gap2_10_12 CELL
-.nodeset v(gap1_10_12)=0.85
-.nodeset v(gap2_10_12)=0.85
+.ic v(gap1_10_12)=0.85 v(gap2_10_12)=0.85
 Xcell_10_13 row_10_13 row_10_14 col_10_13 col_11_13 mid_10_13 gap1_10_13 gap2_10_13 CELL
-.nodeset v(gap1_10_13)=0.85
-.nodeset v(gap2_10_13)=0.85
+.ic v(gap1_10_13)=0.85 v(gap2_10_13)=0.85
 Xcell_10_14 row_10_14 row_10_15 col_10_14 col_11_14 mid_10_14 gap1_10_14 gap2_10_14 CELL
-.nodeset v(gap1_10_14)=0.85
-.nodeset v(gap2_10_14)=0.85
+.ic v(gap1_10_14)=0.85 v(gap2_10_14)=0.85
 Xcell_10_15 row_10_15 row_10_16 col_10_15 col_11_15 mid_10_15 gap1_10_15 gap2_10_15 CELL
-.nodeset v(gap1_10_15)=0.85
-.nodeset v(gap2_10_15)=0.85
+.ic v(gap1_10_15)=0.85 v(gap2_10_15)=0.85
 Xcell_11_0 row_11_0 row_11_1 col_11_0 col_12_0 mid_11_0 gap1_11_0 gap2_11_0 CELL
-.nodeset v(gap1_11_0)=0.85
-.nodeset v(gap2_11_0)=0.85
+.ic v(gap1_11_0)=0.85 v(gap2_11_0)=0.85
 Xcell_11_1 row_11_1 row_11_2 col_11_1 col_12_1 mid_11_1 gap1_11_1 gap2_11_1 CELL
-.nodeset v(gap1_11_1)=0.85
-.nodeset v(gap2_11_1)=0.85
+.ic v(gap1_11_1)=0.85 v(gap2_11_1)=0.85
 Xcell_11_2 row_11_2 row_11_3 col_11_2 col_12_2 mid_11_2 gap1_11_2 gap2_11_2 CELL
-.nodeset v(gap1_11_2)=0.85
-.nodeset v(gap2_11_2)=0.85
+.ic v(gap1_11_2)=0.85 v(gap2_11_2)=0.85
 Xcell_11_3 row_11_3 row_11_4 col_11_3 col_12_3 mid_11_3 gap1_11_3 gap2_11_3 CELL
-.nodeset v(gap1_11_3)=0.85
-.nodeset v(gap2_11_3)=0.85
+.ic v(gap1_11_3)=0.85 v(gap2_11_3)=0.85
 Xcell_11_4 row_11_4 row_11_5 col_11_4 col_12_4 mid_11_4 gap1_11_4 gap2_11_4 CELL
-.nodeset v(gap1_11_4)=0.85
-.nodeset v(gap2_11_4)=0.85
+.ic v(gap1_11_4)=0.85 v(gap2_11_4)=0.85
 Xcell_11_5 row_11_5 row_11_6 col_11_5 col_12_5 mid_11_5 gap1_11_5 gap2_11_5 CELL
-.nodeset v(gap1_11_5)=0.85
-.nodeset v(gap2_11_5)=0.85
+.ic v(gap1_11_5)=0.85 v(gap2_11_5)=0.85
 Xcell_11_6 row_11_6 row_11_7 col_11_6 col_12_6 mid_11_6 gap1_11_6 gap2_11_6 CELL
-.nodeset v(gap1_11_6)=0.85
-.nodeset v(gap2_11_6)=0.85
+.ic v(gap1_11_6)=0.85 v(gap2_11_6)=0.85
 Xcell_11_7 row_11_7 row_11_8 col_11_7 col_12_7 mid_11_7 gap1_11_7 gap2_11_7 CELL
-.nodeset v(gap1_11_7)=0.85
-.nodeset v(gap2_11_7)=0.85
+.ic v(gap1_11_7)=0.85 v(gap2_11_7)=0.85
 Xcell_11_8 row_11_8 row_11_9 col_11_8 col_12_8 mid_11_8 gap1_11_8 gap2_11_8 CELL
-.nodeset v(gap1_11_8)=0.85
-.nodeset v(gap2_11_8)=0.85
+.ic v(gap1_11_8)=0.85 v(gap2_11_8)=0.85
 Xcell_11_9 row_11_9 row_11_10 col_11_9 col_12_9 mid_11_9 gap1_11_9 gap2_11_9 CELL
-.nodeset v(gap1_11_9)=0.85
-.nodeset v(gap2_11_9)=0.85
+.ic v(gap1_11_9)=0.85 v(gap2_11_9)=0.85
 Xcell_11_10 row_11_10 row_11_11 col_11_10 col_12_10 mid_11_10 gap1_11_10 gap2_11_10 CELL
-.nodeset v(gap1_11_10)=0.85
-.nodeset v(gap2_11_10)=0.85
+.ic v(gap1_11_10)=0.85 v(gap2_11_10)=0.85
 Xcell_11_11 row_11_11 row_11_12 col_11_11 col_12_11 mid_11_11 gap1_11_11 gap2_11_11 CELL
-.nodeset v(gap1_11_11)=0.85
-.nodeset v(gap2_11_11)=0.85
+.ic v(gap1_11_11)=0.85 v(gap2_11_11)=0.85
 Xcell_11_12 row_11_12 row_11_13 col_11_12 col_12_12 mid_11_12 gap1_11_12 gap2_11_12 CELL
-.nodeset v(gap1_11_12)=0.85
-.nodeset v(gap2_11_12)=0.85
+.ic v(gap1_11_12)=0.85 v(gap2_11_12)=0.85
 Xcell_11_13 row_11_13 row_11_14 col_11_13 col_12_13 mid_11_13 gap1_11_13 gap2_11_13 CELL
-.nodeset v(gap1_11_13)=0.85
-.nodeset v(gap2_11_13)=0.85
+.ic v(gap1_11_13)=0.85 v(gap2_11_13)=0.85
 Xcell_11_14 row_11_14 row_11_15 col_11_14 col_12_14 mid_11_14 gap1_11_14 gap2_11_14 CELL
-.nodeset v(gap1_11_14)=0.85
-.nodeset v(gap2_11_14)=0.85
+.ic v(gap1_11_14)=0.85 v(gap2_11_14)=0.85
 Xcell_11_15 row_11_15 row_11_16 col_11_15 col_12_15 mid_11_15 gap1_11_15 gap2_11_15 CELL
-.nodeset v(gap1_11_15)=0.85
-.nodeset v(gap2_11_15)=0.85
+.ic v(gap1_11_15)=0.85 v(gap2_11_15)=0.85
 Xcell_12_0 row_12_0 row_12_1 col_12_0 col_13_0 mid_12_0 gap1_12_0 gap2_12_0 CELL
-.nodeset v(gap1_12_0)=0.85
-.nodeset v(gap2_12_0)=0.85
+.ic v(gap1_12_0)=0.85 v(gap2_12_0)=0.85
 Xcell_12_1 row_12_1 row_12_2 col_12_1 col_13_1 mid_12_1 gap1_12_1 gap2_12_1 CELL
-.nodeset v(gap1_12_1)=0.85
-.nodeset v(gap2_12_1)=0.85
+.ic v(gap1_12_1)=0.85 v(gap2_12_1)=0.85
 Xcell_12_2 row_12_2 row_12_3 col_12_2 col_13_2 mid_12_2 gap1_12_2 gap2_12_2 CELL
-.nodeset v(gap1_12_2)=0.85
-.nodeset v(gap2_12_2)=0.85
+.ic v(gap1_12_2)=0.85 v(gap2_12_2)=0.85
 Xcell_12_3 row_12_3 row_12_4 col_12_3 col_13_3 mid_12_3 gap1_12_3 gap2_12_3 CELL
-.nodeset v(gap1_12_3)=0.85
-.nodeset v(gap2_12_3)=0.85
+.ic v(gap1_12_3)=0.85 v(gap2_12_3)=0.85
 Xcell_12_4 row_12_4 row_12_5 col_12_4 col_13_4 mid_12_4 gap1_12_4 gap2_12_4 CELL
-.nodeset v(gap1_12_4)=0.85
-.nodeset v(gap2_12_4)=0.85
+.ic v(gap1_12_4)=0.85 v(gap2_12_4)=0.85
 Xcell_12_5 row_12_5 row_12_6 col_12_5 col_13_5 mid_12_5 gap1_12_5 gap2_12_5 CELL
-.nodeset v(gap1_12_5)=0.85
-.nodeset v(gap2_12_5)=0.85
+.ic v(gap1_12_5)=0.85 v(gap2_12_5)=0.85
 Xcell_12_6 row_12_6 row_12_7 col_12_6 col_13_6 mid_12_6 gap1_12_6 gap2_12_6 CELL
-.nodeset v(gap1_12_6)=0.85
-.nodeset v(gap2_12_6)=0.85
+.ic v(gap1_12_6)=0.85 v(gap2_12_6)=0.85
 Xcell_12_7 row_12_7 row_12_8 col_12_7 col_13_7 mid_12_7 gap1_12_7 gap2_12_7 CELL
-.nodeset v(gap1_12_7)=0.85
-.nodeset v(gap2_12_7)=0.85
+.ic v(gap1_12_7)=0.85 v(gap2_12_7)=0.85
 Xcell_12_8 row_12_8 row_12_9 col_12_8 col_13_8 mid_12_8 gap1_12_8 gap2_12_8 CELL
-.nodeset v(gap1_12_8)=0.85
-.nodeset v(gap2_12_8)=0.85
+.ic v(gap1_12_8)=0.85 v(gap2_12_8)=0.85
 Xcell_12_9 row_12_9 row_12_10 col_12_9 col_13_9 mid_12_9 gap1_12_9 gap2_12_9 CELL
-.nodeset v(gap1_12_9)=0.85
-.nodeset v(gap2_12_9)=0.85
+.ic v(gap1_12_9)=0.85 v(gap2_12_9)=0.85
 Xcell_12_10 row_12_10 row_12_11 col_12_10 col_13_10 mid_12_10 gap1_12_10 gap2_12_10 CELL
-.nodeset v(gap1_12_10)=0.85
-.nodeset v(gap2_12_10)=0.85
+.ic v(gap1_12_10)=0.85 v(gap2_12_10)=0.85
 Xcell_12_11 row_12_11 row_12_12 col_12_11 col_13_11 mid_12_11 gap1_12_11 gap2_12_11 CELL
-.nodeset v(gap1_12_11)=0.85
-.nodeset v(gap2_12_11)=0.85
+.ic v(gap1_12_11)=0.85 v(gap2_12_11)=0.85
 Xcell_12_12 row_12_12 row_12_13 col_12_12 col_13_12 mid_12_12 gap1_12_12 gap2_12_12 CELL
-.nodeset v(gap1_12_12)=0.85
-.nodeset v(gap2_12_12)=0.85
+.ic v(gap1_12_12)=0.85 v(gap2_12_12)=0.85
 Xcell_12_13 row_12_13 row_12_14 col_12_13 col_13_13 mid_12_13 gap1_12_13 gap2_12_13 CELL
-.nodeset v(gap1_12_13)=0.85
-.nodeset v(gap2_12_13)=0.85
+.ic v(gap1_12_13)=0.85 v(gap2_12_13)=0.85
 Xcell_12_14 row_12_14 row_12_15 col_12_14 col_13_14 mid_12_14 gap1_12_14 gap2_12_14 CELL
-.nodeset v(gap1_12_14)=0.85
-.nodeset v(gap2_12_14)=0.85
+.ic v(gap1_12_14)=0.85 v(gap2_12_14)=0.85
 Xcell_12_15 row_12_15 row_12_16 col_12_15 col_13_15 mid_12_15 gap1_12_15 gap2_12_15 CELL
-.nodeset v(gap1_12_15)=0.85
-.nodeset v(gap2_12_15)=0.85
+.ic v(gap1_12_15)=0.85 v(gap2_12_15)=0.85
 Xcell_13_0 row_13_0 row_13_1 col_13_0 col_14_0 mid_13_0 gap1_13_0 gap2_13_0 CELL
-.nodeset v(gap1_13_0)=0.85
-.nodeset v(gap2_13_0)=0.85
+.ic v(gap1_13_0)=0.85 v(gap2_13_0)=0.85
 Xcell_13_1 row_13_1 row_13_2 col_13_1 col_14_1 mid_13_1 gap1_13_1 gap2_13_1 CELL
-.nodeset v(gap1_13_1)=0.85
-.nodeset v(gap2_13_1)=0.85
+.ic v(gap1_13_1)=0.85 v(gap2_13_1)=0.85
 Xcell_13_2 row_13_2 row_13_3 col_13_2 col_14_2 mid_13_2 gap1_13_2 gap2_13_2 CELL
-.nodeset v(gap1_13_2)=0.85
-.nodeset v(gap2_13_2)=0.85
+.ic v(gap1_13_2)=0.85 v(gap2_13_2)=0.85
 Xcell_13_3 row_13_3 row_13_4 col_13_3 col_14_3 mid_13_3 gap1_13_3 gap2_13_3 CELL
-.nodeset v(gap1_13_3)=0.85
-.nodeset v(gap2_13_3)=0.85
+.ic v(gap1_13_3)=0.85 v(gap2_13_3)=0.85
 Xcell_13_4 row_13_4 row_13_5 col_13_4 col_14_4 mid_13_4 gap1_13_4 gap2_13_4 CELL
-.nodeset v(gap1_13_4)=0.85
-.nodeset v(gap2_13_4)=0.85
+.ic v(gap1_13_4)=0.85 v(gap2_13_4)=0.85
 Xcell_13_5 row_13_5 row_13_6 col_13_5 col_14_5 mid_13_5 gap1_13_5 gap2_13_5 CELL
-.nodeset v(gap1_13_5)=0.85
-.nodeset v(gap2_13_5)=0.85
+.ic v(gap1_13_5)=0.85 v(gap2_13_5)=0.85
 Xcell_13_6 row_13_6 row_13_7 col_13_6 col_14_6 mid_13_6 gap1_13_6 gap2_13_6 CELL
-.nodeset v(gap1_13_6)=0.85
-.nodeset v(gap2_13_6)=0.85
+.ic v(gap1_13_6)=0.85 v(gap2_13_6)=0.85
 Xcell_13_7 row_13_7 row_13_8 col_13_7 col_14_7 mid_13_7 gap1_13_7 gap2_13_7 CELL
-.nodeset v(gap1_13_7)=0.85
-.nodeset v(gap2_13_7)=0.85
+.ic v(gap1_13_7)=0.85 v(gap2_13_7)=0.85
 Xcell_13_8 row_13_8 row_13_9 col_13_8 col_14_8 mid_13_8 gap1_13_8 gap2_13_8 CELL
-.nodeset v(gap1_13_8)=0.85
-.nodeset v(gap2_13_8)=0.85
+.ic v(gap1_13_8)=0.85 v(gap2_13_8)=0.85
 Xcell_13_9 row_13_9 row_13_10 col_13_9 col_14_9 mid_13_9 gap1_13_9 gap2_13_9 CELL
-.nodeset v(gap1_13_9)=0.85
-.nodeset v(gap2_13_9)=0.85
+.ic v(gap1_13_9)=0.85 v(gap2_13_9)=0.85
 Xcell_13_10 row_13_10 row_13_11 col_13_10 col_14_10 mid_13_10 gap1_13_10 gap2_13_10 CELL
-.nodeset v(gap1_13_10)=0.85
-.nodeset v(gap2_13_10)=0.85
+.ic v(gap1_13_10)=0.85 v(gap2_13_10)=0.85
 Xcell_13_11 row_13_11 row_13_12 col_13_11 col_14_11 mid_13_11 gap1_13_11 gap2_13_11 CELL
-.nodeset v(gap1_13_11)=0.85
-.nodeset v(gap2_13_11)=0.85
+.ic v(gap1_13_11)=0.85 v(gap2_13_11)=0.85
 Xcell_13_12 row_13_12 row_13_13 col_13_12 col_14_12 mid_13_12 gap1_13_12 gap2_13_12 CELL
-.nodeset v(gap1_13_12)=0.85
-.nodeset v(gap2_13_12)=0.85
+.ic v(gap1_13_12)=0.85 v(gap2_13_12)=0.85
 Xcell_13_13 row_13_13 row_13_14 col_13_13 col_14_13 mid_13_13 gap1_13_13 gap2_13_13 CELL
-.nodeset v(gap1_13_13)=0.85
-.nodeset v(gap2_13_13)=0.85
+.ic v(gap1_13_13)=0.85 v(gap2_13_13)=0.85
 Xcell_13_14 row_13_14 row_13_15 col_13_14 col_14_14 mid_13_14 gap1_13_14 gap2_13_14 CELL
-.nodeset v(gap1_13_14)=0.85
-.nodeset v(gap2_13_14)=0.85
+.ic v(gap1_13_14)=0.85 v(gap2_13_14)=0.85
 Xcell_13_15 row_13_15 row_13_16 col_13_15 col_14_15 mid_13_15 gap1_13_15 gap2_13_15 CELL
-.nodeset v(gap1_13_15)=0.85
-.nodeset v(gap2_13_15)=0.85
+.ic v(gap1_13_15)=0.85 v(gap2_13_15)=0.85
 Xcell_14_0 row_14_0 row_14_1 col_14_0 col_15_0 mid_14_0 gap1_14_0 gap2_14_0 CELL
-.nodeset v(gap1_14_0)=0.85
-.nodeset v(gap2_14_0)=0.85
+.ic v(gap1_14_0)=0.85 v(gap2_14_0)=0.85
 Xcell_14_1 row_14_1 row_14_2 col_14_1 col_15_1 mid_14_1 gap1_14_1 gap2_14_1 CELL
-.nodeset v(gap1_14_1)=0.85
-.nodeset v(gap2_14_1)=0.85
+.ic v(gap1_14_1)=0.85 v(gap2_14_1)=0.85
 Xcell_14_2 row_14_2 row_14_3 col_14_2 col_15_2 mid_14_2 gap1_14_2 gap2_14_2 CELL
-.nodeset v(gap1_14_2)=0.85
-.nodeset v(gap2_14_2)=0.85
+.ic v(gap1_14_2)=0.85 v(gap2_14_2)=0.85
 Xcell_14_3 row_14_3 row_14_4 col_14_3 col_15_3 mid_14_3 gap1_14_3 gap2_14_3 CELL
-.nodeset v(gap1_14_3)=0.85
-.nodeset v(gap2_14_3)=0.85
+.ic v(gap1_14_3)=0.85 v(gap2_14_3)=0.85
 Xcell_14_4 row_14_4 row_14_5 col_14_4 col_15_4 mid_14_4 gap1_14_4 gap2_14_4 CELL
-.nodeset v(gap1_14_4)=0.85
-.nodeset v(gap2_14_4)=0.85
+.ic v(gap1_14_4)=0.85 v(gap2_14_4)=0.85
 Xcell_14_5 row_14_5 row_14_6 col_14_5 col_15_5 mid_14_5 gap1_14_5 gap2_14_5 CELL
-.nodeset v(gap1_14_5)=0.85
-.nodeset v(gap2_14_5)=0.85
+.ic v(gap1_14_5)=0.85 v(gap2_14_5)=0.85
 Xcell_14_6 row_14_6 row_14_7 col_14_6 col_15_6 mid_14_6 gap1_14_6 gap2_14_6 CELL
-.nodeset v(gap1_14_6)=0.85
-.nodeset v(gap2_14_6)=0.85
+.ic v(gap1_14_6)=0.85 v(gap2_14_6)=0.85
 Xcell_14_7 row_14_7 row_14_8 col_14_7 col_15_7 mid_14_7 gap1_14_7 gap2_14_7 CELL
-.nodeset v(gap1_14_7)=0.85
-.nodeset v(gap2_14_7)=0.85
+.ic v(gap1_14_7)=0.85 v(gap2_14_7)=0.85
 Xcell_14_8 row_14_8 row_14_9 col_14_8 col_15_8 mid_14_8 gap1_14_8 gap2_14_8 CELL
-.nodeset v(gap1_14_8)=0.85
-.nodeset v(gap2_14_8)=0.85
+.ic v(gap1_14_8)=0.85 v(gap2_14_8)=0.85
 Xcell_14_9 row_14_9 row_14_10 col_14_9 col_15_9 mid_14_9 gap1_14_9 gap2_14_9 CELL
-.nodeset v(gap1_14_9)=0.85
-.nodeset v(gap2_14_9)=0.85
+.ic v(gap1_14_9)=0.85 v(gap2_14_9)=0.85
 Xcell_14_10 row_14_10 row_14_11 col_14_10 col_15_10 mid_14_10 gap1_14_10 gap2_14_10 CELL
-.nodeset v(gap1_14_10)=0.85
-.nodeset v(gap2_14_10)=0.85
+.ic v(gap1_14_10)=0.85 v(gap2_14_10)=0.85
 Xcell_14_11 row_14_11 row_14_12 col_14_11 col_15_11 mid_14_11 gap1_14_11 gap2_14_11 CELL
-.nodeset v(gap1_14_11)=0.85
-.nodeset v(gap2_14_11)=0.85
+.ic v(gap1_14_11)=0.85 v(gap2_14_11)=0.85
 Xcell_14_12 row_14_12 row_14_13 col_14_12 col_15_12 mid_14_12 gap1_14_12 gap2_14_12 CELL
-.nodeset v(gap1_14_12)=0.85
-.nodeset v(gap2_14_12)=0.85
+.ic v(gap1_14_12)=0.85 v(gap2_14_12)=0.85
 Xcell_14_13 row_14_13 row_14_14 col_14_13 col_15_13 mid_14_13 gap1_14_13 gap2_14_13 CELL
-.nodeset v(gap1_14_13)=0.85
-.nodeset v(gap2_14_13)=0.85
+.ic v(gap1_14_13)=0.85 v(gap2_14_13)=0.85
 Xcell_14_14 row_14_14 row_14_15 col_14_14 col_15_14 mid_14_14 gap1_14_14 gap2_14_14 CELL
-.nodeset v(gap1_14_14)=0.85
-.nodeset v(gap2_14_14)=0.85
+.ic v(gap1_14_14)=0.85 v(gap2_14_14)=0.85
 Xcell_14_15 row_14_15 row_14_16 col_14_15 col_15_15 mid_14_15 gap1_14_15 gap2_14_15 CELL
-.nodeset v(gap1_14_15)=0.85
-.nodeset v(gap2_14_15)=0.85
+.ic v(gap1_14_15)=0.85 v(gap2_14_15)=0.85
 Xcell_15_0 row_15_0 row_15_1 col_15_0 col_16_0 mid_15_0 gap1_15_0 gap2_15_0 CELL
-.nodeset v(gap1_15_0)=0.85
-.nodeset v(gap2_15_0)=0.85
+.ic v(gap1_15_0)=0.85 v(gap2_15_0)=0.85
 Xcell_15_1 row_15_1 row_15_2 col_15_1 col_16_1 mid_15_1 gap1_15_1 gap2_15_1 CELL
-.nodeset v(gap1_15_1)=0.85
-.nodeset v(gap2_15_1)=0.85
+.ic v(gap1_15_1)=0.85 v(gap2_15_1)=0.85
 Xcell_15_2 row_15_2 row_15_3 col_15_2 col_16_2 mid_15_2 gap1_15_2 gap2_15_2 CELL
-.nodeset v(gap1_15_2)=0.85
-.nodeset v(gap2_15_2)=0.85
+.ic v(gap1_15_2)=0.85 v(gap2_15_2)=0.85
 Xcell_15_3 row_15_3 row_15_4 col_15_3 col_16_3 mid_15_3 gap1_15_3 gap2_15_3 CELL
-.nodeset v(gap1_15_3)=0.85
-.nodeset v(gap2_15_3)=0.85
+.ic v(gap1_15_3)=0.85 v(gap2_15_3)=0.85
 Xcell_15_4 row_15_4 row_15_5 col_15_4 col_16_4 mid_15_4 gap1_15_4 gap2_15_4 CELL
-.nodeset v(gap1_15_4)=0.85
-.nodeset v(gap2_15_4)=0.85
+.ic v(gap1_15_4)=0.85 v(gap2_15_4)=0.85
 Xcell_15_5 row_15_5 row_15_6 col_15_5 col_16_5 mid_15_5 gap1_15_5 gap2_15_5 CELL
-.nodeset v(gap1_15_5)=0.85
-.nodeset v(gap2_15_5)=0.85
+.ic v(gap1_15_5)=0.85 v(gap2_15_5)=0.85
 Xcell_15_6 row_15_6 row_15_7 col_15_6 col_16_6 mid_15_6 gap1_15_6 gap2_15_6 CELL
-.nodeset v(gap1_15_6)=0.85
-.nodeset v(gap2_15_6)=0.85
+.ic v(gap1_15_6)=0.85 v(gap2_15_6)=0.85
 Xcell_15_7 row_15_7 row_15_8 col_15_7 col_16_7 mid_15_7 gap1_15_7 gap2_15_7 CELL
-.nodeset v(gap1_15_7)=0.85
-.nodeset v(gap2_15_7)=0.85
+.ic v(gap1_15_7)=0.85 v(gap2_15_7)=0.85
 Xcell_15_8 row_15_8 row_15_9 col_15_8 col_16_8 mid_15_8 gap1_15_8 gap2_15_8 CELL
-.nodeset v(gap1_15_8)=0.85
-.nodeset v(gap2_15_8)=0.85
+.ic v(gap1_15_8)=0.85 v(gap2_15_8)=0.85
 Xcell_15_9 row_15_9 row_15_10 col_15_9 col_16_9 mid_15_9 gap1_15_9 gap2_15_9 CELL
-.nodeset v(gap1_15_9)=0.85
-.nodeset v(gap2_15_9)=0.85
+.ic v(gap1_15_9)=0.85 v(gap2_15_9)=0.85
 Xcell_15_10 row_15_10 row_15_11 col_15_10 col_16_10 mid_15_10 gap1_15_10 gap2_15_10 CELL
-.nodeset v(gap1_15_10)=0.85
-.nodeset v(gap2_15_10)=0.85
+.ic v(gap1_15_10)=0.85 v(gap2_15_10)=0.85
 Xcell_15_11 row_15_11 row_15_12 col_15_11 col_16_11 mid_15_11 gap1_15_11 gap2_15_11 CELL
-.nodeset v(gap1_15_11)=0.85
-.nodeset v(gap2_15_11)=0.85
+.ic v(gap1_15_11)=0.85 v(gap2_15_11)=0.85
 Xcell_15_12 row_15_12 row_15_13 col_15_12 col_16_12 mid_15_12 gap1_15_12 gap2_15_12 CELL
-.nodeset v(gap1_15_12)=0.85
-.nodeset v(gap2_15_12)=0.85
+.ic v(gap1_15_12)=0.85 v(gap2_15_12)=0.85
 Xcell_15_13 row_15_13 row_15_14 col_15_13 col_16_13 mid_15_13 gap1_15_13 gap2_15_13 CELL
-.nodeset v(gap1_15_13)=0.85
-.nodeset v(gap2_15_13)=0.85
+.ic v(gap1_15_13)=0.85 v(gap2_15_13)=0.85
 Xcell_15_14 row_15_14 row_15_15 col_15_14 col_16_14 mid_15_14 gap1_15_14 gap2_15_14 CELL
-.nodeset v(gap1_15_14)=0.85
-.nodeset v(gap2_15_14)=0.85
+.ic v(gap1_15_14)=0.85 v(gap2_15_14)=0.85
 Xcell_15_15 row_15_15 row_15_16 col_15_15 col_16_15 mid_15_15 gap1_15_15 gap2_15_15 CELL
-.nodeset v(gap1_15_15)=0.85
-.nodeset v(gap2_15_15)=0.85
+.ic v(gap1_15_15)=0.85 v(gap2_15_15)=0.85
 
 
 ** PWL voltage waveforms **

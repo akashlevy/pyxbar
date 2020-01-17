@@ -42,15 +42,14 @@ if params['type'] == '1R':
             # Create cell (i,j) and initialize nodes
             fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} gap_{i}_{j} CELL\n".format(**fmt)
-            xbar += ".nodeset v(gap_{i}_{j})=0.85\n".format(**fmt)
+            xbar += ".ic v(gap_{i}_{j})=0.85\n".format(**fmt)
 elif params['type'] == '2R':
     for i in range(params['rows']):
         for j in range(params['cols']):
             # Create cell (i,j) and initialize nodes
             fmt = {'i': i, 'j': j, 'ni': i+1, 'nj': j+1}
             xbar += "Xcell_{i}_{j} row_{i}_{j} row_{i}_{nj} col_{i}_{j} col_{ni}_{j} mid_{i}_{j} gap1_{i}_{j} gap2_{i}_{j} CELL\n".format(**fmt)
-            xbar += ".nodeset v(gap1_{i}_{j})=0.85\n".format(**fmt)
-            xbar += ".nodeset v(gap2_{i}_{j})=0.85\n".format(**fmt)
+            xbar += ".ic v(gap1_{i}_{j})=0.85 v(gap2_{i}_{j})=0.85\n".format(**fmt)
 subs['xbar'] = xbar
 
 # PWL class
@@ -152,10 +151,10 @@ class PWL(object):
             if 'probegroups' in params:
                 if 'gaps' in params['probegroups']:
                     if params['type'] == '1R':
-                        probes.append('V(gap_%s_%s)' % (i,j))
+                        probes.append('V(gap_%s_%s, col_%s_%s)' % (i,j,i,j))
                     elif params['type'] == '2R':
-                        probes.append('V(gap1_%s_%s)' % (i,j))
-                        probes.append('V(gap2_%s_%s)' % (i,j))
+                        probes.append('V(gap1_%s_%s, mid_%s_%s)' % (i,j,i,j))
+                        probes.append('V(gap2_%s_%s, col_%s_%s)' % (i,j,i,j))
                 if 'mids' in params['probegroups']:
                     if params['type'] == '1R':
                         raise Exception('Cannot probe midpoint for 1R structure')
