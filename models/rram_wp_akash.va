@@ -1,6 +1,5 @@
 `include "disciplines.vams"
 `include "constants.vams"
-`include "smoothfunctions.va"
 
 module RRAM_v0(t, b, nGap);
     inout t, b, nGap;
@@ -23,6 +22,8 @@ module RRAM_v0(t, b, nGap);
     parameter real Kclip = 50 from (0:inf);
     
     real Gap, ddt_gap, Gamma, Fw1, Fw2, clip_0, clip_maxGap;
+
+    `include "smoothfunctions.va"
 
     analog begin
         Gap = V(nGap, b);
